@@ -1,0 +1,90 @@
+2019-09-03 10:54:09.3927|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Nullable object must have a value.|
+2019-09-03 10:54:40.9774|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Nullable object must have a value.|
+2019-09-03 10:55:16.9866|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Nullable object must have a value.|
+2019-09-03 10:55:54.6333|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Nullable object must have a value.|
+2019-09-03 11:14:26.4650|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Value cannot be null.
+Parameter name: id|
+2019-09-03 11:15:09.5511|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Value cannot be null.
+Parameter name: id|
+2019-09-03 11:16:21.3602|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Value cannot be null.
+Parameter name: id|
+2019-09-03 11:23:26.6646|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 11:23:42.7400|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 11:26:02.8812|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 11:26:33.0775|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 11:31:57.4388|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 11:33:06.1275|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 11:36:29.7335|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 11:43:09.0995|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 11:49:05.6105|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:00:46.5662|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:02:03.2572|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:03:38.7899|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:06:26.4490|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:13:15.0191|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:30:55.0299|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:32:21.4200|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:32:54.5670|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:36:51.4264|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 12:37:26.6879|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.
+Parameter name: sourceTimeZone|
+2019-09-03 13:16:07.3427|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-03 does not match start date 2019-09-02 .|
+2019-09-03 13:16:11.9101|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-03 does not match start date 2019-09-02 .|
+2019-09-03 13:30:20.7925|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Ms Jane Doe and date 2019-09-02 .|
+2019-09-03 13:32:13.7933|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Ms Jane Doe and date 2019-09-02 .|
+2019-09-03 13:33:47.6770|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Ms Jane Doe and date 2019-09-02 .|
+2019-09-03 13:34:21.0526|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Ms Jane Doe and date 2019-09-03 .|
+2019-09-03 13:34:47.8466|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Ms Jane Doe and date 2019-09-03 .|
+2019-09-03 13:34:57.4673|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Ms Jane Doe and date 2019-09-03 .|
+2019-09-03 13:35:15.2998|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Ms Jane Doe and date 2019-09-03 .|
+2019-09-03 13:36:50.4921|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Ms Jane Doe and date 2019-09-03 .|
+2019-09-03 13:38:02.0669|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr Jackie Chan and date 2019-09-03 .|
+2019-09-03 20:15:31.0703|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:15:31.0703|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:15:31.0703|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:15:31.0703|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:15:34.9685|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:15:53.1377|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:02.1889|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:04.0088|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:04.2485|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:04.5702|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:04.7495|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:11.1138|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:18.5782|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:18.7585|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:48.6606|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:49.2513|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:49.4732|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:18:49.6651|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:20:58.9508|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:21:14.9666|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:21:23.7115|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:21:50.9337|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:21:52.0408|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:21:52.2103|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:24:00.6266|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:24:11.4942|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Object reference not set to an instance of an object.|
+2019-09-03 20:30:08.2846|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Missing type map configuration or unsupported mapping.
+
+Mapping types:
+spEmployees_GetByCredentials_Result -> EmployeesModel
+RITEQ.Developer.Test.Domain.spEmployees_GetByCredentials_Result -> RITEQ.Developer.Test.Domain.Models.EmployeesModel|

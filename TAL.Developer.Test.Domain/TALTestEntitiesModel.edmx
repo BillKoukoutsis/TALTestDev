@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TALTestEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblEmployees">
+          <Key>
+            <PropertyRef Name="empId" />
+          </Key>
+          <Property Name="empId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="empUsername" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="empPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="empGroupId" Type="int" Nullable="false" />
+          <Property Name="empTimezoneId" Type="int" Nullable="false" />
+          <Property Name="empRate" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblGroups">
+          <Key>
+            <PropertyRef Name="grpId" />
+          </Key>
+          <Property Name="grpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grpName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTimesheets">
+          <Key>
+            <PropertyRef Name="tshId" />
+          </Key>
+          <Property Name="tshId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tshEmployeeId" Type="int" Nullable="false" />
+          <Property Name="tshTimezoneId" Type="int" Nullable="false" />
+          <Property Name="tshStartDate" Type="datetime" Nullable="false" />
+          <Property Name="tshEndDate" Type="datetime" />
+          <Property Name="tshRate" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTimezones">
+          <Key>
+            <PropertyRef Name="tmzId" />
+          </Key>
+          <Property Name="tmzId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tmzName" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblEmployees_tblGroups">
+          <End Role="tblGroups" Type="Self.tblGroups" Multiplicity="1" />
+          <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGroups">
+              <PropertyRef Name="grpId" />
+            </Principal>
+            <Dependent Role="tblEmployees">
+              <PropertyRef Name="empGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployees_tblTimezones">
+          <End Role="tblTimezones" Type="Self.tblTimezones" Multiplicity="1" />
+          <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTimezones">
+              <PropertyRef Name="tmzId" />
+            </Principal>
+            <Dependent Role="tblEmployees">
+              <PropertyRef Name="empTimezoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTimesheets_tblEmployees">
+          <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="1" />
+          <End Role="tblTimesheets" Type="Self.tblTimesheets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployees">
+              <PropertyRef Name="empId" />
+            </Principal>
+            <Dependent Role="tblTimesheets">
+              <PropertyRef Name="tshEmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTimesheets_tblTimezones">
+          <End Role="tblTimezones" Type="Self.tblTimezones" Multiplicity="1" />
+          <End Role="tblTimesheets" Type="Self.tblTimesheets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTimezones">
+              <PropertyRef Name="tmzId" />
+            </Principal>
+            <Dependent Role="tblTimesheets">
+              <PropertyRef Name="tshTimezoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spEmployees_DeleteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEmployees_DeleteTestData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spEmployees_GetByCredentials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spEmployees_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEmployees_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spEmployees_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="GroupId" Type="int" Mode="In" />
+          <Parameter Name="TimezoneId" Type="int" Mode="In" />
+          <Parameter Name="Rate" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="spEmployees_UpdateById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="GroupId" Type="int" Mode="In" />
+          <Parameter Name="TimezoneId" Type="int" Mode="In" />
+          <Parameter Name="Rate" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="spGroups_DeleteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGroups_DeleteTestData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGroups_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGroups_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGroups_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spGroups_UpdateById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spTimesheets_DeleteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTimesheets_DeleteTestData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spTimesheets_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTimesheets_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spTimesheets_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmployeeId" Type="int" Mode="In" />
+          <Parameter Name="TimezoneId" Type="int" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="Rate" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="spTimesheets_ReportByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Timezone" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spTimesheets_UpdateById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="TimezoneId" Type="int" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+          <Parameter Name="Rate" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="spTimezones_DeleteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTimezones_DeleteTestData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spTimezones_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTimezones_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spTimezones_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spTimezones_UpdateById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="TALTestEntitiesModelStoreContainer">
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGroups" EntityType="Self.tblGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTimesheets" EntityType="Self.tblTimesheets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTimezones" EntityType="Self.tblTimezones" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblEmployees_tblGroups" Association="Self.FK_tblEmployees_tblGroups">
+            <End Role="tblGroups" EntitySet="tblGroups" />
+            <End Role="tblEmployees" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployees_tblTimezones" Association="Self.FK_tblEmployees_tblTimezones">
+            <End Role="tblTimezones" EntitySet="tblTimezones" />
+            <End Role="tblEmployees" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTimesheets_tblEmployees" Association="Self.FK_tblTimesheets_tblEmployees">
+            <End Role="tblEmployees" EntitySet="tblEmployees" />
+            <End Role="tblTimesheets" EntitySet="tblTimesheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTimesheets_tblTimezones" Association="Self.FK_tblTimesheets_tblTimezones">
+            <End Role="tblTimezones" EntitySet="tblTimezones" />
+            <End Role="tblTimesheets" EntitySet="tblTimesheets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TALTestEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="empId" />
+          </Key>
+          <Property Name="empId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empGroupId" Type="Int32" Nullable="false" />
+          <Property Name="empTimezoneId" Type="Int32" Nullable="false" />
+          <Property Name="empRate" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <NavigationProperty Name="tblGroup" Relationship="Self.FK_tblEmployees_tblGroups" FromRole="tblEmployees" ToRole="tblGroups" />
+          <NavigationProperty Name="tblTimezone" Relationship="Self.FK_tblEmployees_tblTimezones" FromRole="tblEmployees" ToRole="tblTimezones" />
+          <NavigationProperty Name="tblTimesheets" Relationship="Self.FK_tblTimesheets_tblEmployees" FromRole="tblEmployees" ToRole="tblTimesheets" />
+        </EntityType>
+        <EntityType Name="tblGroup">
+          <Key>
+            <PropertyRef Name="grpId" />
+          </Key>
+          <Property Name="grpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK_tblEmployees_tblGroups" FromRole="tblGroups" ToRole="tblEmployees" />
+        </EntityType>
+        <EntityType Name="tblTimesheet">
+          <Key>
+            <PropertyRef Name="tshId" />
+          </Key>
+          <Property Name="tshId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tshEmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="tshTimezoneId" Type="Int32" Nullable="false" />
+          <Property Name="tshStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tshEndDate" Type="DateTime" Precision="3" />
+          <Property Name="tshRate" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK_tblTimesheets_tblEmployees" FromRole="tblTimesheets" ToRole="tblEmployees" />
+          <NavigationProperty Name="tblTimezone" Relationship="Self.FK_tblTimesheets_tblTimezones" FromRole="tblTimesheets" ToRole="tblTimezones" />
+        </EntityType>
+        <EntityType Name="tblTimezone">
+          <Key>
+            <PropertyRef Name="tmzId" />
+          </Key>
+          <Property Name="tmzId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tmzName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK_tblEmployees_tblTimezones" FromRole="tblTimezones" ToRole="tblEmployees" />
+          <NavigationProperty Name="tblTimesheets" Relationship="Self.FK_tblTimesheets_tblTimezones" FromRole="tblTimezones" ToRole="tblTimesheets" />
+        </EntityType>
+        <Association Name="FK_tblEmployees_tblGroups">
+          <End Role="tblGroups" Type="Self.tblGroup" Multiplicity="1" />
+          <End Role="tblEmployees" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGroups">
+              <PropertyRef Name="grpId" />
+            </Principal>
+            <Dependent Role="tblEmployees">
+              <PropertyRef Name="empGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployees_tblTimezones">
+          <End Role="tblTimezones" Type="Self.tblTimezone" Multiplicity="1" />
+          <End Role="tblEmployees" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTimezones">
+              <PropertyRef Name="tmzId" />
+            </Principal>
+            <Dependent Role="tblEmployees">
+              <PropertyRef Name="empTimezoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTimesheets_tblEmployees">
+          <End Role="tblEmployees" Type="Self.tblEmployee" Multiplicity="1" />
+          <End Role="tblTimesheets" Type="Self.tblTimesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployees">
+              <PropertyRef Name="empId" />
+            </Principal>
+            <Dependent Role="tblTimesheets">
+              <PropertyRef Name="tshEmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTimesheets_tblTimezones">
+          <End Role="tblTimezones" Type="Self.tblTimezone" Multiplicity="1" />
+          <End Role="tblTimesheets" Type="Self.tblTimesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTimezones">
+              <PropertyRef Name="tmzId" />
+            </Principal>
+            <Dependent Role="tblTimesheets">
+              <PropertyRef Name="tshTimezoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TALTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+          <EntitySet Name="tblGroups" EntityType="Self.tblGroup" />
+          <EntitySet Name="tblTimesheets" EntityType="Self.tblTimesheet" />
+          <EntitySet Name="tblTimezones" EntityType="Self.tblTimezone" />
+          <AssociationSet Name="FK_tblEmployees_tblGroups" Association="Self.FK_tblEmployees_tblGroups">
+            <End Role="tblGroups" EntitySet="tblGroups" />
+            <End Role="tblEmployees" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployees_tblTimezones" Association="Self.FK_tblEmployees_tblTimezones">
+            <End Role="tblTimezones" EntitySet="tblTimezones" />
+            <End Role="tblEmployees" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTimesheets_tblEmployees" Association="Self.FK_tblTimesheets_tblEmployees">
+            <End Role="tblEmployees" EntitySet="tblEmployees" />
+            <End Role="tblTimesheets" EntitySet="tblTimesheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTimesheets_tblTimezones" Association="Self.FK_tblTimesheets_tblTimezones">
+            <End Role="tblTimezones" EntitySet="tblTimezones" />
+            <End Role="tblTimesheets" EntitySet="tblTimesheets" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(TALTestEntitiesModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(TALTestEntitiesModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="spEmployees_DeleteById">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEmployees_DeleteTestData" />
+          <FunctionImport Name="spEmployees_GetByCredentials" ReturnType="Collection(TALTestEntitiesModel.spEmployees_GetByCredentials_Result)">
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEmployees_GetById" ReturnType="Collection(TALTestEntitiesModel.spEmployees_GetById_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEmployees_GetList" ReturnType="Collection(TALTestEntitiesModel.spEmployees_GetList_Result)" />
+          <FunctionImport Name="spEmployees_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="GroupId" Mode="In" Type="Int32" />
+            <Parameter Name="TimezoneId" Mode="In" Type="Int32" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="spEmployees_UpdateById">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="GroupId" Mode="In" Type="Int32" />
+            <Parameter Name="TimezoneId" Mode="In" Type="Int32" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="spGroups_DeleteById">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGroups_DeleteTestData" />
+          <FunctionImport Name="spGroups_GetById" ReturnType="Collection(TALTestEntitiesModel.spGroups_GetById_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGroups_GetList" ReturnType="Collection(TALTestEntitiesModel.spGroups_GetList_Result)" />
+          <FunctionImport Name="spGroups_Insert" ReturnType="Collection(Decimal)">
+          <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGroups_UpdateById">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spTimesheets_DeleteById">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spTimesheets_DeleteTestData" />
+          <FunctionImport Name="spTimesheets_GetById" ReturnType="Collection(TALTestEntitiesModel.spTimesheets_GetById_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spTimesheets_GetList" ReturnType="Collection(TALTestEntitiesModel.spTimesheets_GetList_Result)" />
+          <FunctionImport Name="spTimesheets_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
+            <Parameter Name="TimezoneId" Mode="In" Type="Int32" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="spTimesheets_ReportByDate" ReturnType="Collection(TALTestEntitiesModel.spTimesheets_ReportByDate_Result)">
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Timezone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spTimesheets_UpdateById">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="TimezoneId" Mode="In" Type="Int32" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="spTimezones_DeleteById">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spTimezones_DeleteTestData" />
+          <FunctionImport Name="spTimezones_GetById" ReturnType="Collection(TALTestEntitiesModel.spTimezones_GetById_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spTimezones_GetList" ReturnType="Collection(TALTestEntitiesModel.spTimezones_GetList_Result)" />
+          <FunctionImport Name="spTimezones_Insert" ReturnType="Collection(Decimal)">
+          <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spTimezones_UpdateById">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spEmployees_GetByCredentials_Result">
+          <Property Type="Int32" Name="empId" Nullable="false" />
+          <Property Type="String" Name="empName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="empUsername" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="empPassword" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="empGroupId" Nullable="false" />
+          <Property Type="String" Name="grpName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="empTimezoneId" Nullable="false" />
+          <Property Type="String" Name="tmzName" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="empRate" Nullable="false" Precision="12" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spEmployees_GetById_Result">
+          <Property Type="Int32" Name="empId" Nullable="false" />
+          <Property Type="String" Name="empName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="empUsername" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="empPassword" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="empGroupId" Nullable="false" />
+          <Property Type="String" Name="grpName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="empTimezoneId" Nullable="false" />
+          <Property Type="String" Name="tmzName" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="empRate" Nullable="false" Precision="12" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spEmployees_GetList_Result">
+          <Property Type="Int32" Name="empId" Nullable="false" />
+          <Property Type="String" Name="empName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="empUsername" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="empPassword" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="empGroupId" Nullable="false" />
+          <Property Type="String" Name="grpName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="empTimezoneId" Nullable="false" />
+          <Property Type="String" Name="tmzName" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="empRate" Nullable="false" Precision="12" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spGroups_GetById_Result">
+          <Property Type="Int32" Name="grpId" Nullable="false" />
+          <Property Type="String" Name="grpName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spGroups_GetList_Result">
+          <Property Type="Int32" Name="grpId" Nullable="false" />
+          <Property Type="String" Name="grpName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spTimesheets_GetById_Result">
+          <Property Type="Int32" Name="tshId" Nullable="false" />
+          <Property Type="Int32" Name="tshEmployeeId" Nullable="false" />
+          <Property Type="String" Name="empName" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="tshTimezoneId" Nullable="false" />
+          <Property Type="String" Name="tmzName" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="tshStartDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="tshEndDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="tshRate" Nullable="false" Precision="12" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spTimesheets_GetList_Result">
+          <Property Type="Int32" Name="tshId" Nullable="false" />
+          <Property Type="Int32" Name="tshEmployeeId" Nullable="false" />
+          <Property Type="String" Name="empName" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="tshTimezoneId" Nullable="false" />
+          <Property Type="String" Name="tmzName" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="tshStartDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="tshEndDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="tshRate" Nullable="false" Precision="12" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spTimesheets_ReportByDate_Result">
+          <Property Type="Int32" Name="empId" Nullable="false" />
+          <Property Type="String" Name="empName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="empUsername" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="tmzName" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="tshStartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="tshEndDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="tshRate" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="37" />
+          <Property Type="Decimal" Name="HoursWorked" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Cost" Nullable="false" Precision="12" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spTimezones_GetById_Result">
+          <Property Type="Int32" Name="tmzId" Nullable="false" />
+          <Property Type="String" Name="tmzName" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="spTimezones_GetList_Result">
+          <Property Type="Int32" Name="tmzId" Nullable="false" />
+          <Property Type="String" Name="tmzName" Nullable="false" MaxLength="150" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TALTestEntitiesModelStoreContainer" CdmEntityContainer="TALTestEntities">
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="TALTestEntitiesModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployees">
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="empName" ColumnName="empName" />
+                <ScalarProperty Name="empUsername" ColumnName="empUsername" />
+                <ScalarProperty Name="empPassword" ColumnName="empPassword" />
+                <ScalarProperty Name="empGroupId" ColumnName="empGroupId" />
+                <ScalarProperty Name="empTimezoneId" ColumnName="empTimezoneId" />
+                <ScalarProperty Name="empRate" ColumnName="empRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGroups">
+            <EntityTypeMapping TypeName="TALTestEntitiesModel.tblGroup">
+              <MappingFragment StoreEntitySet="tblGroups">
+                <ScalarProperty Name="grpId" ColumnName="grpId" />
+                <ScalarProperty Name="grpName" ColumnName="grpName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTimesheets">
+            <EntityTypeMapping TypeName="TALTestEntitiesModel.tblTimesheet">
+              <MappingFragment StoreEntitySet="tblTimesheets">
+                <ScalarProperty Name="tshId" ColumnName="tshId" />
+                <ScalarProperty Name="tshEmployeeId" ColumnName="tshEmployeeId" />
+                <ScalarProperty Name="tshTimezoneId" ColumnName="tshTimezoneId" />
+                <ScalarProperty Name="tshStartDate" ColumnName="tshStartDate" />
+                <ScalarProperty Name="tshEndDate" ColumnName="tshEndDate" />
+                <ScalarProperty Name="tshRate" ColumnName="tshRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTimezones">
+            <EntityTypeMapping TypeName="TALTestEntitiesModel.tblTimezone">
+              <MappingFragment StoreEntitySet="tblTimezones">
+                <ScalarProperty Name="tmzId" ColumnName="tmzId" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="TALTestEntitiesModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="TALTestEntitiesModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="TALTestEntitiesModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="TALTestEntitiesModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="TALTestEntitiesModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TALTestEntitiesModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TALTestEntitiesModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="spEmployees_DeleteById" FunctionName="TALTestEntitiesModel.Store.spEmployees_DeleteById" />
+          <FunctionImportMapping FunctionImportName="spEmployees_DeleteTestData" FunctionName="TALTestEntitiesModel.Store.spEmployees_DeleteTestData" />
+          <FunctionImportMapping FunctionImportName="spEmployees_GetByCredentials" FunctionName="TALTestEntitiesModel.Store.spEmployees_GetByCredentials">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spEmployees_GetByCredentials_Result">
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="empName" ColumnName="empName" />
+                <ScalarProperty Name="empUsername" ColumnName="empUsername" />
+                <ScalarProperty Name="empPassword" ColumnName="empPassword" />
+                <ScalarProperty Name="empGroupId" ColumnName="empGroupId" />
+                <ScalarProperty Name="grpName" ColumnName="grpName" />
+                <ScalarProperty Name="empTimezoneId" ColumnName="empTimezoneId" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+                <ScalarProperty Name="empRate" ColumnName="empRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEmployees_GetById" FunctionName="TALTestEntitiesModel.Store.spEmployees_GetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spEmployees_GetById_Result">
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="empName" ColumnName="empName" />
+                <ScalarProperty Name="empUsername" ColumnName="empUsername" />
+                <ScalarProperty Name="empPassword" ColumnName="empPassword" />
+                <ScalarProperty Name="empGroupId" ColumnName="empGroupId" />
+                <ScalarProperty Name="grpName" ColumnName="grpName" />
+                <ScalarProperty Name="empTimezoneId" ColumnName="empTimezoneId" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+                <ScalarProperty Name="empRate" ColumnName="empRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEmployees_GetList" FunctionName="TALTestEntitiesModel.Store.spEmployees_GetList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spEmployees_GetList_Result">
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="empName" ColumnName="empName" />
+                <ScalarProperty Name="empUsername" ColumnName="empUsername" />
+                <ScalarProperty Name="empPassword" ColumnName="empPassword" />
+                <ScalarProperty Name="empGroupId" ColumnName="empGroupId" />
+                <ScalarProperty Name="grpName" ColumnName="grpName" />
+                <ScalarProperty Name="empTimezoneId" ColumnName="empTimezoneId" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+                <ScalarProperty Name="empRate" ColumnName="empRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEmployees_Insert" FunctionName="TALTestEntitiesModel.Store.spEmployees_Insert" />
+          <FunctionImportMapping FunctionImportName="spEmployees_UpdateById" FunctionName="TALTestEntitiesModel.Store.spEmployees_UpdateById" />
+          <FunctionImportMapping FunctionImportName="spGroups_DeleteById" FunctionName="TALTestEntitiesModel.Store.spGroups_DeleteById" />
+          <FunctionImportMapping FunctionImportName="spGroups_DeleteTestData" FunctionName="TALTestEntitiesModel.Store.spGroups_DeleteTestData" />
+          <FunctionImportMapping FunctionImportName="spGroups_GetById" FunctionName="TALTestEntitiesModel.Store.spGroups_GetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spGroups_GetById_Result">
+                <ScalarProperty Name="grpId" ColumnName="grpId" />
+                <ScalarProperty Name="grpName" ColumnName="grpName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGroups_GetList" FunctionName="TALTestEntitiesModel.Store.spGroups_GetList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spGroups_GetList_Result">
+                <ScalarProperty Name="grpId" ColumnName="grpId" />
+                <ScalarProperty Name="grpName" ColumnName="grpName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGroups_Insert" FunctionName="TALTestEntitiesModel.Store.spGroups_Insert" />
+          <FunctionImportMapping FunctionImportName="spGroups_UpdateById" FunctionName="TALTestEntitiesModel.Store.spGroups_UpdateById" />
+          <FunctionImportMapping FunctionImportName="spTimesheets_DeleteById" FunctionName="TALTestEntitiesModel.Store.spTimesheets_DeleteById" />
+          <FunctionImportMapping FunctionImportName="spTimesheets_DeleteTestData" FunctionName="TALTestEntitiesModel.Store.spTimesheets_DeleteTestData" />
+          <FunctionImportMapping FunctionImportName="spTimesheets_GetById" FunctionName="TALTestEntitiesModel.Store.spTimesheets_GetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spTimesheets_GetById_Result">
+                <ScalarProperty Name="tshId" ColumnName="tshId" />
+                <ScalarProperty Name="tshEmployeeId" ColumnName="tshEmployeeId" />
+                <ScalarProperty Name="empName" ColumnName="empName" />
+                <ScalarProperty Name="tshTimezoneId" ColumnName="tshTimezoneId" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+                <ScalarProperty Name="tshStartDate" ColumnName="tshStartDate" />
+                <ScalarProperty Name="tshEndDate" ColumnName="tshEndDate" />
+                <ScalarProperty Name="tshRate" ColumnName="tshRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTimesheets_GetList" FunctionName="TALTestEntitiesModel.Store.spTimesheets_GetList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spTimesheets_GetList_Result">
+                <ScalarProperty Name="tshId" ColumnName="tshId" />
+                <ScalarProperty Name="tshEmployeeId" ColumnName="tshEmployeeId" />
+                <ScalarProperty Name="empName" ColumnName="empName" />
+                <ScalarProperty Name="tshTimezoneId" ColumnName="tshTimezoneId" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+                <ScalarProperty Name="tshStartDate" ColumnName="tshStartDate" />
+                <ScalarProperty Name="tshEndDate" ColumnName="tshEndDate" />
+                <ScalarProperty Name="tshRate" ColumnName="tshRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTimesheets_Insert" FunctionName="TALTestEntitiesModel.Store.spTimesheets_Insert" />
+          <FunctionImportMapping FunctionImportName="spTimesheets_ReportByDate" FunctionName="TALTestEntitiesModel.Store.spTimesheets_ReportByDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spTimesheets_ReportByDate_Result">
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="empName" ColumnName="empName" />
+                <ScalarProperty Name="empUsername" ColumnName="empUsername" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+                <ScalarProperty Name="tshStartDate" ColumnName="tshStartDate" />
+                <ScalarProperty Name="tshEndDate" ColumnName="tshEndDate" />
+                <ScalarProperty Name="tshRate" ColumnName="tshRate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="HoursWorked" ColumnName="HoursWorked" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTimesheets_UpdateById" FunctionName="TALTestEntitiesModel.Store.spTimesheets_UpdateById" />
+          <FunctionImportMapping FunctionImportName="spTimezones_DeleteById" FunctionName="TALTestEntitiesModel.Store.spTimezones_DeleteById" />
+          <FunctionImportMapping FunctionImportName="spTimezones_DeleteTestData" FunctionName="TALTestEntitiesModel.Store.spTimezones_DeleteTestData" />
+          <FunctionImportMapping FunctionImportName="spTimezones_GetById" FunctionName="TALTestEntitiesModel.Store.spTimezones_GetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spTimezones_GetById_Result">
+                <ScalarProperty Name="tmzId" ColumnName="tmzId" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTimezones_GetList" FunctionName="TALTestEntitiesModel.Store.spTimezones_GetList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALTestEntitiesModel.spTimezones_GetList_Result">
+                <ScalarProperty Name="tmzId" ColumnName="tmzId" />
+                <ScalarProperty Name="tmzName" ColumnName="tmzName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTimezones_Insert" FunctionName="TALTestEntitiesModel.Store.spTimezones_Insert" />
+          <FunctionImportMapping FunctionImportName="spTimezones_UpdateById" FunctionName="TALTestEntitiesModel.Store.spTimezones_UpdateById" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

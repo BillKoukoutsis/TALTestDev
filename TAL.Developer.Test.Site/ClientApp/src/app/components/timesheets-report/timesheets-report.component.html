@@ -1,0 +1,76 @@
+<h1>Timesheets Report</h1>
+
+<p>Shows a list of timesheets, statuses and costings for the selected date .</p>
+
+<div style="text-align:right">
+  <input id="inputDate" name="inputDate" [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" placeholder="Date" [(ngModel)]="reportDate" [ngModelOptions]="{standalone: true}" (ngModelChange)="reportByDate(reportDate)">
+  <owl-date-time [pickerType]="'calendar'" [startView]="'year'" #dt3></owl-date-time>
+</div>
+
+<p *ngIf="!timesheetsReports"><em>Loading timesheets report...</em></p>
+
+<table class='table' *ngIf="timesheetsReports">
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Username</th>
+      <th>Timezone</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Rate</th>
+      <th>Status</th>
+      <th>Hours Worked</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let timesheetsReport of timesheetsReports">
+      <td>{{ timesheetsReport.employeeName }}</td>
+      <td>{{ timesheetsReport.employeeUsername }}</td>
+      <td>{{ timesheetsReport.timezoneName }}</td>
+      <td>{{ timesheetsReport.formattedStartDate }}</td>
+      <td>{{ timesheetsReport.formattedEndDate }}</td>
+      <td>{{ timesheetsReport.rate }}</td>
+      <td>
+        <div class="btn btn-danger" *ngIf="timesheetsReport.status=='away OR late'">
+          {{ timesheetsReport.status }}
+        </div>
+        <div class="btn btn-danger" *ngIf="timesheetsReport.status=='clocked out EARLY BUT didn''t clock in'">
+          {{ timesheetsReport.status }}
+        </div>
+        <div class="btn btn-warning" *ngIf="timesheetsReport.status=='clocked out BUT didn''t clock in'">
+          {{ timesheetsReport.status }}
+        </div>
+        <div class="btn btn-danger" *ngIf="timesheetsReport.status=='in overtime'">
+          {{ timesheetsReport.status }}
+        </div>
+        <div class="btn btn-warning" *ngIf="timesheetsReport.status=='clocked in LATE'">
+          {{ timesheetsReport.status }}
+        </div>
+        <div class="btn btn-primary" *ngIf="timesheetsReport.status=='clocked in'">
+          {{ timesheetsReport.status }}
+        </div>
+        <div class="btn btn-warning" *ngIf="timesheetsReport.status=='clocked out EARLY'">
+          {{ timesheetsReport.status }}
+        </div>
+        <div class="btn btn-success" *ngIf="timesheetsReport.status=='clocked out'">
+          {{ timesheetsReport.status }}
+        </div>
+        <div class="btn btn-danger" *ngIf="timesheetsReport.status=='Unknown'">
+          {{ timesheetsReport.status }}
+        </div>
+      </td>
+      <td>{{ timesheetsReport.hoursWorked }}</td>
+      <td>{{ timesheetsReport.cost }}</td>
+    </tr>
+    <tr>
+      <td colspan="9">&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="1">Totals</th>
+      <th colspan="6">&nbsp;</th>
+      <th>{{ totalHoursWorked }}</th>
+      <th>{{ totalCost }}</th>
+    </tr>
+  </tbody>
+</table>

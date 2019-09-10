@@ -1,0 +1,11 @@
+2019-09-04 09:59:44.2571|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr Bill Koukoutsis and date 2019-09-04 .|
+2019-09-04 09:59:50.8731|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr Bill Koukoutsis and date 2019-09-04 .|
+2019-09-04 10:00:14.1906|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr Bill Koukoutsis and date 2019-09-04 .|
+2019-09-04 10:00:17.3693|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr Bill Koukoutsis and date 2019-09-04 .|
+2019-09-04 10:11:16.9595|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Admin User and date 2019-09-04 .|
+2019-09-04 10:11:36.8710|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr Bill Koukoutsis and date 2019-09-04 .|
+2019-09-04 10:12:04.0797|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr John Doe and date 2019-09-04 .|
+2019-09-04 10:13:43.1303|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Admin User and date 2019-09-04 .|
+2019-09-04 10:13:51.4551|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr John Doe and date 2019-09-04 .|
+2019-09-04 10:28:54.8327|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr Bill Koukoutsis and date 2019-09-04 .|
+2019-09-04 10:29:00.5643|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet already exists for Mr Bill Koukoutsis and date 2019-09-05 .|

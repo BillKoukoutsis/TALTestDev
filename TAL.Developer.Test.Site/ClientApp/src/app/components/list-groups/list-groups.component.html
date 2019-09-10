@@ -1,0 +1,30 @@
+<h1>Groups</h1>
+
+<p>Shows a list of groups.</p>
+
+<p *ngIf="!groups"><em>Loading groups...</em></p>
+
+<table class='table' *ngIf="groups">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>
+        <a class="btn btn-success" [routerLink]='["/edit-group", 0]'>
+          Add
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let group of groups">
+      <td>{{ group.id }}</td>
+      <td>{{ group.name }}</td>
+      <td>
+        <a *ngIf="group.name!='Admins' && group.name!='Users'" class="btn btn-primary" [routerLink]='["/edit-group", group.id]'>
+          Edit
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

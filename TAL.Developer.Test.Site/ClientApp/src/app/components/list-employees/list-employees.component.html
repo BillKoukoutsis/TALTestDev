@@ -1,0 +1,40 @@
+<h1>Employees</h1>
+
+<p>Shows a list of employees.</p>
+
+<p *ngIf="!employees"><em>Loading employees...</em></p>
+
+<table class='table' *ngIf="employees">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Group</th>
+      <th>Timezone</th>
+      <th>Rate</th>
+      <th>
+        <a class="btn btn-success" [routerLink]='["/edit-employee", 0]'>
+          Add
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.username }}</td>
+      <td>********</td>
+      <td>{{ employee.groupName }}</td>
+      <td>{{ employee.timezoneName }}</td>
+      <td>{{ employee.rate }}</td>
+      <td>
+        <a *ngIf="employee.name!='Admin User'" class="btn btn-primary" [routerLink]='["/edit-employee", employee.id]'>
+          Edit
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

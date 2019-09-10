@@ -1,0 +1,109 @@
+<h1 *ngIf="timesheet && timesheet.id==0">Add Timesheet</h1>
+<h1 *ngIf="timesheet && timesheet.id>0">Edit Timesheet</h1>
+
+<p *ngIf="timesheet && timesheet.id==0">Add new timesheet.</p>
+<p *ngIf="timesheet && timesheet.id>0">Edit existing timesheet.</p>
+
+<p *ngIf="!timesheet"><em>Retreiving timesheet...</em></p>
+
+<form id="timesheetsForm" name="timesheetsForm" #timesheetsForm="ngForm" *ngIf="timesheet">
+
+  <div class="form-group row">
+    <label for="inputTimesheetId" class="col-sm-2 col-form-label">Id</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputTimesheetId" placeholder="Timesheet Id" [(ngModel)]="timesheet.id" [ngModelOptions]="{standalone: true}" readonly>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputTimesheetEmployee" class="col-sm-2 col-form-label">Employee</label>
+    <div *ngIf="timesheet && timesheet.id==0" class="col-sm-10">
+      <select class="form-control" id="inputTimesheetEmployee" name="inputTimesheetEmployee" placeholder="Timesheet Employee" [(ngModel)]="timesheet.employeeId" [ngModelOptions]="{standalone: true}" required #inputTimesheetEmployee="ngModel" (ngModelChange)="getSelectedEmployee()" [disabled]="securityService.group.name != 'Admins'">
+        <option *ngFor="let employee of employees" [value]="employee.id" [selected]="employee.id === timesheet.employeeId">{{employee.name}}</option>
+      </select>
+      <div *ngIf="inputTimesheetEmployee.invalid && (inputTimesheetEmployee.dirty || inputTimesheetEmployee.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputTimesheetEmployee.errors.required">
+          Employee is required.
+        </div>
+      </div>
+    </div>
+    <div *ngIf="timesheet && timesheet.id>0" class="col-sm-10">
+      {{timesheet.employeeName}}
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputTimesheetTimezone" class="col-sm-2 col-form-label">Timezone</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="inputTimesheetTimezone" name="inputTimesheetTimezone" placeholder="Timesheet Timezone" [(ngModel)]="timesheet.timezoneId" [ngModelOptions]="{standalone: true}" required #inputTimesheetTimezone="ngModel">
+        <option *ngFor="let timezone of timezones" [value]="timezone.id" [selected]="timezone.id === timesheet.timezoneId">{{timezone.name}}</option>
+      </select>
+      <div *ngIf="inputTimesheetTimezone.invalid && (inputTimesheetTimezone.dirty || inputTimesheetTimezone.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputTimesheetTimezone.errors.required">
+          Timezone is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputTimesheetStartDate" class="col-sm-2 col-form-label">Start Date</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="inputTimesheetStartDate" name="inputTimesheetStartDate" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Timesheet Start Date" [(ngModel)]="timesheet.startDate" [ngModelOptions]="{standalone: true}">
+      <owl-date-time #dt1></owl-date-time>
+      <div *ngIf="inputTimesheetStartDate.invalid && (inputTimesheetStartDate.dirty || inputTimesheetStartDate.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputTimesheetStartDate.errors.required">
+          Start date is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" hidden="hidden">
+    <label for="inputTimesheetStartDate" class="col-sm-2 col-form-label">Start Date</label>
+    <div class="col-sm-10">
+      <input type="datetime" class="form-control" id="inputTimesheetStartDate" name="inputTimesheetStartDate" placeholder="Timesheet Start Date" [(ngModel)]="timesheet.startDate" [ngModelOptions]="{standalone: true}" required #inputTimesheetStartDate="ngModel">
+      <div *ngIf="inputTimesheetStartDate.invalid && (inputTimesheetStartDate.dirty || inputTimesheetStartDate.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputTimesheetStartDate.errors.required">
+          Start date is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputTimesheetStartDate" class="col-sm-2 col-form-label">End Date</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="inputTimesheetEndDate" name="inputTimesheetEndDate" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" placeholder="Timesheet End Date" [(ngModel)]="timesheet.endDate" [ngModelOptions]="{standalone: true}" [disabled]="timesheet.id == 0">
+      <owl-date-time #dt2></owl-date-time>
+    </div>
+  </div>
+
+  <div class="form-group row" hidden="hidden">
+    <label for="inputTimesheetEndDate" class="col-sm-2 col-form-label">End Date</label>
+    <div class="col-sm-10">
+      <input type="datetime" class="form-control" id="inputTimesheetEndDate" name="inputTimesheetEndDate" placeholder="Timesheet End Date" [(ngModel)]="timesheet.endDate" [ngModelOptions]="{standalone: true}" #inputTimesheetEndDate="ngModel" [disabled]="timesheet.id == 0">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputTimesheetRate" class="col-sm-2 col-form-label">Rate ($/hr)</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputTimesheetRate" name="inputTimesheetRate" placeholder="Timesheet Rate" [(ngModel)]="timesheet.rate" [ngModelOptions]="{standalone: true}" required #inputTimesheetRate="ngModel">
+      <div *ngIf="inputTimesheetRate.invalid && (inputTimesheetRate.dirty || inputTimesheetRate.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputTimesheetRate.errors.required">
+          Rate is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <a class="btn btn-default" [routerLink]='["/list-timesheets"]'>
+        Cancel
+      </a>
+      <button type="submit" class="btn btn-primary" (click)="saveTimesheet()">Save</button>
+    </div>
+  </div>
+</form>

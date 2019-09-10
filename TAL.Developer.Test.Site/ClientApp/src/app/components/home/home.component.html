@@ -1,0 +1,695 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:106%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;
+	font-weight:normal;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:2.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:106%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;
+	font-weight:normal;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.msolistparagraphcxspfirst, li.msolistparagraphcxspfirst, div.msolistparagraphcxspfirst
+	{mso-style-name:msolistparagraphcxspfirst;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msolistparagraphcxspmiddle, li.msolistparagraphcxspmiddle, div.msolistparagraphcxspmiddle
+	{mso-style-name:msolistparagraphcxspmiddle;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msolistparagraphcxsplast, li.msolistparagraphcxsplast, div.msolistparagraphcxsplast
+	{mso-style-name:msolistparagraphcxsplast;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:106%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:106%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-AU link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<h1>TAL Developer Test Notes</h1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2>Notes On Use</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Roles based security model.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Admin &nbsp;users have access to all menu items.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>All other user Roles have access to their respective entries in the List
+Timesheets menu item and the Timesheets Report menu item. List Groups, List
+Timezones and List Employees menu items are hidden to all other user Roles.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>List Groups menu item is visible to users in Admins group only. Allows
+for the creation and edit of new and existing groups. The Admins and Users
+group however cannot be modified.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>List Timezones menu item is visible to users in Admins group only. Allows
+for the creation and edit of new and existing timezones. The <span
+style='font-size:9.5pt;line-height:106%;font-family:Consolas;color:black;
+background:white'>'</span>E. Australia Standard Time<span style='font-size:
+9.5pt;line-height:106%;font-family:Consolas;color:black;background:white'>'</span>
+timezone however cannot be modified.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>List Employees menu item is visible to users in Admins group only. Allows
+for the creation and edit of new and existing employees. The <span
+style='font-size:9.5pt;line-height:106%;font-family:Consolas;color:black;
+background:white'>'</span>Admin User<span style='font-size:9.5pt;line-height:
+106%;font-family:Consolas;color:black;background:white'>'</span> employee however
+cannot be modified.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>List Timesheets menu item is visible by all Roles. Users in the Admins
+group see a list of all timesheets for all users across all time. Users in all
+other groups see a list of timesheets for their profile only across all time.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Timesheets report menu item is visible by all Roles. Users in the Admins
+group see a list of timesheets data for all users for the specified date. Users
+in all other groups see timesheet data for their profile only and for the
+selected date.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>The same application is used to emulate transactional
+input (clock in, clock out, etc), posting transactional data via a simple rest
+based API.</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2>Usernames, Passwords and Groups for Use in Testing</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Admin; admin (Admins)</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Billk; test123 (Users)</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Johnd; test123 (Users)</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Janed; test123 (Users)</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Jackiec; test123 (Users)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2>For Further Development</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='color:red'>Items that weren</span><span
+style='font-size:9.5pt;line-height:106%;font-family:Consolas;color:red;
+background:white'>'</span><span style='color:red'>t included due to lack of
+time:</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Although unit tests were done for the API, the application needs Angular
+UI unit tests using Jasmine and Karma.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Although a rudimentary security model was introduced, the application needs
+OAuth2 in the API.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Clear text password is stored and passed DB&lt;-&gt;API&lt;-&gt;UI .
+This could be encrypted for security.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2>Assumptions</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Work begins at 9:00am and ends at 5:00pm GLOBALLY for all employees and
+in all localities.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2>Notes On Implementation</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>It's possible that the current class library
+(TAL.Developer.Test.Domain) is being used by more than one application
+including this website. We also want to make our Domain knowledge available to
+all our applications on all our platforms so we:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>1.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Created Domain class library with new RESTful HTTP Services Web API (TAL.Developer.Test.Domain)</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>With core references to MVC and Web API</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Scaffold for unit tests for the new Web API
+(TAL.Developer.Test.Domain.Tests)</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>c.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Included NInject.3.3.4 in [Domain] and [Domain.Test] -&gt; Help with IoC
+and SOLID priciples in general</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>d.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Included AutoMapper.8.1.1 in [Domain] and [Domain.Test] -&gt; Help with
+Object mapping</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>e.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Installed Node.js (v10.16.2 LTS local x64) for Angular Site</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>f.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Included Microsoft.AspNet.WebApi.Cors 5.2.7 in API (Domain) project to
+handle CORS</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>2.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Created datastore (TAL.mdf) <b>SQL Server 2016</b> and reference it in
+new Database project (<b>TAL.Developer.Test.Database</b>). Although it
+shouldn’t be needed as the database is included in the database a complete
+rebuild script can also be found in this project <b>Create and Populate Script\
+DBBuild.sql</b>. Don’t forget to change the FILENAME! property in the script.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Used Web Api Calls instead of referencing using the API directly to
+showcase flexibility through separation of concerns.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>4.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Initially Angular for UI project was at version 5.2.5 based on Visual
+Studio 2017 project template - couldn<span style='font-size:9.5pt;line-height:
+106%;font-family:Consolas;color:black;background:white'>'</span>t update (was
+targeting v8.3.2)</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>5.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>npm install ng-pick-datetime@5.2.6 -save</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>6.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>npm install @angular/animations --save</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2>Notes on Tables</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>1.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tblGroups table</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>grpId int pri key</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>grpName varchar(50)</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>c.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>2 groups that can<span style='font-size:9.5pt;line-height:106%;
+font-family:Consolas;color:black;background:white'>'</span>t be deleted /
+edited or added just viewed</p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Group 1 is Admins</p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ii.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Group 2 is Users</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>2.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tblTimezones table</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tmzId int pri key</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tmzName varchar(150) -&gt; Will currently be one timezone <span
+style='font-size:9.5pt;line-height:106%;font-family:Consolas;color:red;
+background:white'>'E. Australia Standard Time'</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt'>NOTE: Valid timezone names can be
+found at <a
+href="https://dzone.com/articles/dates-and-times-in-sql-server-at-time-zone">https://dzone.com/articles/dates-and-times-in-sql-server-at-time-zone</a></p>
+
+<p class=MsoNormal style='margin-left:54.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tblEmployees table</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empId int pri key</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empName varchar(150)</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>c.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empUsername varchar(50)</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>d.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empPassword varchar(50) &lt;-stored encrypted</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>e.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empGroupId int foreign key &lt;- ((2)) <span style='font-size:9.5pt;
+line-height:106%;font-family:Consolas;color:black;background:white'>'</span>Users<span
+style='font-size:9.5pt;line-height:106%;font-family:Consolas;color:black;
+background:white'>'</span> by default</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>f.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empTimezoneId int foreign key &lt;- ((1)) <span style='font-size:9.5pt;
+line-height:106%;font-family:Consolas;color:black;background:white'>'</span><span
+style='font-size:9.5pt;line-height:106%;font-family:Consolas;color:red;
+background:white'>'E. Australia Standard Time'</span><span style='font-size:
+9.5pt;line-height:106%;font-family:Consolas;color:black;background:white'>'</span>
+by default</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>g.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empRate decimal(12,2) &lt;- 0.00 by default</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>h.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1 employee initially pre-created</p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empId=1</p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ii.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empName=<span style='font-size:9.5pt;line-height:106%;font-family:Consolas;
+color:black;background:white'>'</span>Admin User<span style='font-size:9.5pt;
+line-height:106%;font-family:Consolas;color:black;background:white'>'</span></p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>iii.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empUsername =<span style='font-size:9.5pt;line-height:106%;font-family:
+Consolas;color:black;background:white'>'</span>admin<span style='font-size:
+9.5pt;line-height:106%;font-family:Consolas;color:black;background:white'>'</span></p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>iv.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empPassword=<span style='font-size:9.5pt;line-height:106%;font-family:
+Consolas;color:black;background:white'>'</span>admin<span style='font-size:
+9.5pt;line-height:106%;font-family:Consolas;color:black;background:white'>'</span></p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>v.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empGroupId = 1 (Admins)</p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>vi.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empTimezoneId = 1 (<span style='font-size:9.5pt;line-height:106%;
+font-family:Consolas;color:red;background:white'>'E. Australia Standard Time'</span>)</p>
+
+<p class=MsoListParagraph style='margin-left:108.0pt;text-indent:-108.0pt'><span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>vii.<span style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>empRate = 0.00</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>i.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Employees can be created and edited. They can<span style='font-size:
+9.5pt;line-height:106%;font-family:Consolas;color:black;background:white'>'</span>t
+be deleted. </p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>j.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Employees can only be created by Admin<span style='font-size:9.5pt;
+line-height:106%;font-family:Consolas;color:black;background:white'>'</span>s.
+(user and passwords initially set by admins).</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>k.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Employees can change details (username/password) after they log in (will
+require logout / login).</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>4.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tblTimesheets table</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tshId int pri key</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tshEmployeeId int foreign key</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>c.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tshTimezoneId int foreign key -&gt; at moment only ever <span
+style='font-size:9.5pt;line-height:106%;font-family:Consolas;color:red;
+background:white'>'E. Australia Standard Time'</span> -&gt; based on employees
+timezone at StartDate -&gt; if left null then assume employees default timezone</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>d.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tshStartDate -&gt; Utc Date Time -&gt; there can only be <b><u>one per
+day per employee</u></b></p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>e.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tshEndDate -&gt; Utc Date Time -&gt; Must be greater than tshStartDate <b><u>but
+same day</u></b> as tshStartDate</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>f.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>tshRate -&gt; based on employees rate at StartDate -&gt; if left null
+then assume employees default rate. Overrides employees rate if different.</p>
+
+<p class=MsoNormal>&nbsp;<span style='font-size:13.0pt;line-height:106%;
+font-family:"Calibri Light",sans-serif;color:#2F5496'>&nbsp;</span></p>
+
+<h2>Notes on Screens</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Regarding <span style='font-size:9.5pt;line-height:106%;
+font-family:Consolas;color:black;background:white'>'</span>There should be a
+small application to emulate transactional input (clock in, clock out, etc),
+posting transactional data via a simple rest based API<span style='font-size:
+9.5pt;line-height:106%;font-family:Consolas;color:black;background:white'>'</span>.
+This has been integrated with the main site for convenience (see Timesheet edit
+screen below). </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>1.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Groups List Screen</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can list Groups</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Users group cannot list Groups</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>2.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Group Edit Screen</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can edit a Group EXCEPT the Admins and Users group</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Users group cannot edit a Group</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>c.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>No one can delete a Group</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Timezones List Screen</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can list Timezones</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Users group cannot list Timezones</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>4.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Timezone Edit Screen</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can edit a Timezone EXCEPT the <span style='font-size:
+9.5pt;line-height:106%;font-family:Consolas;color:red;background:white'>'E.
+Australia Standard Time'</span> Timezone</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Users group cannot edit a Timezone</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>c.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>No one can delete a Timezone</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>5.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Employees List Screen</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can list ALL Employees</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Users group cannot list Employees EXCEPT their own account</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>6.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Employee Edit Screen</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can edit an Employee EXCEPT the Admin user</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Users group cannot edit a User EXCEPT for their own account</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>c.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>No one can delete a Group</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>7.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Timesheets List Screen</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can list ALL Timesheets</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Users group cannot list Timesheets EXCEPT for their own account</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>8.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Timesheet Edit Screen</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can edit a Timesheet EXCEPT the Admin user</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Users group cannot edit a Timesheet EXCEPT for their own account AND for
+the current day</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>c.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>No one can delete a Timesheet</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>9.<span style='font-size:
+7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Timesheets Report Screen (By Day)</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>a.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Only Admins group can report on ALL Timesheets</p>
+
+<p class=MsoListParagraph style='margin-left:72.0pt;text-indent:-18.0pt'>b.<span
+style='font-size:7.0pt;line-height:106%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Reporting uses the <span style='font-size:9.5pt;line-height:106%;
+font-family:Consolas;color:red;background:white'>'E. Australia Standard Time'</span>
+Timezone as the reference timezone when converting Utc to Local time.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

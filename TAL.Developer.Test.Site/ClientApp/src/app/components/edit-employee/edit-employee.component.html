@@ -1,0 +1,111 @@
+<h1 *ngIf="employee && employee.id==0">Add Employee</h1>
+<h1 *ngIf="employee && employee.id>0">Edit Employee</h1>
+
+<p *ngIf="employee && employee.id==0">Add new employee.</p>
+<p *ngIf="employee && employee.id>0">Edit existing employee.</p>
+
+<p *ngIf="!employee"><em>Retreiving employee...</em></p>
+
+<form id="employeesForm" name="employeesForm" #employeesForm="ngForm" *ngIf="employee">
+
+  <div class="form-group row">
+    <label for="inputEmployeeId" class="col-sm-2 col-form-label">Id</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputEmployeeId" placeholder="Employee Id" [(ngModel)]="employee.id" [ngModelOptions]="{standalone: true}" readonly>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmployeeName" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputEmployeeName" name="inputEmployeeName" placeholder="Employee Name" [(ngModel)]="employee.name" [ngModelOptions]="{standalone: true}" required maxlength="120" #inputEmployeeName="ngModel">
+      <div *ngIf="inputEmployeeName.invalid && (inputEmployeeName.dirty || inputEmployeeName.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputEmployeeName.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="inputEmployeeName.errors.maxlength">
+          Name must be at most 150 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmployeeUsername" class="col-sm-2 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputEmployeeUsername" name="inputEmployeeUsername" placeholder="Employee Username" [(ngModel)]="employee.username" [ngModelOptions]="{standalone: true}" required maxlength="50" #inputEmployeeUsername="ngModel">
+      <div *ngIf="inputEmployeeUsername.invalid && (inputEmployeeUsername.dirty || inputEmployeeUsername.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputEmployeeUsername.errors.required">
+          Username is required.
+        </div>
+        <div *ngIf="inputEmployeeUsername.errors.maxlength">
+          Username must be at most 50 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmployeePassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputEmployeePassword" name="inputEmployeePassword" placeholder="Employee Password" [(ngModel)]="employee.password" [ngModelOptions]="{standalone: true}" required maxlength="50" #inputEmployeePassword="ngModel">
+      <div *ngIf="inputEmployeePassword.invalid && (inputEmployeePassword.dirty || inputEmployeePassword.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputEmployeePassword.errors.required">
+          Password is required.
+        </div>
+        <div *ngIf="inputEmployeePassword.errors.maxlength">
+          Password must be at most 50 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmployeeGroup" class="col-sm-2 col-form-label">Group</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="inputEmployeeGroup" name="inputEmployeeGroup" placeholder="Employee Group" [(ngModel)]="employee.groupId" [ngModelOptions]="{standalone: true}" required #inputEmployeeGroup="ngModel">
+        <option *ngFor="let group of groups" [value]="group.id" [selected]="group.id === employee.groupId">{{group.name}}</option>
+      </select>
+      <div *ngIf="inputEmployeeGroup.invalid && (inputEmployeeGroup.dirty || inputEmployeeGroup.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputEmployeeGroup.errors.required">
+          Group is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmployeeTimezone" class="col-sm-2 col-form-label">Timezone</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="inputEmployeeTimezone" name="inputEmployeeTimezone" placeholder="Employee Timezone" [(ngModel)]="employee.timezoneId" [ngModelOptions]="{standalone: true}" required #inputEmployeeTimezone="ngModel">
+        <option *ngFor="let timezone of timezones" [value]="timezone.id" [selected]="timezone.id === employee.timezoneId">{{timezone.name}}</option>
+      </select>
+      <div *ngIf="inputEmployeeTimezone.invalid && (inputEmployeeTimezone.dirty || inputEmployeeTimezone.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputEmployeeTimezone.errors.required">
+          Timezone is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmployeeRate" class="col-sm-2 col-form-label">Rate ($/hr)</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputEmployeeRate" name="inputEmployeeRate" placeholder="Employee Rate" [(ngModel)]="employee.rate" [ngModelOptions]="{standalone: true}" required maxlength="50" #inputEmployeeRate="ngModel">
+      <div *ngIf="inputEmployeeRate.invalid && (inputEmployeeRate.dirty || inputEmployeeRate.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputEmployeeRate.errors.required">
+          Rate is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <a class="btn btn-default" [routerLink]='["/list-employees"]'>
+        Cancel
+      </a>
+      <button type="submit" class="btn btn-primary" (click)="saveEmployee()">Save</button>
+    </div>
+  </div>
+</form>

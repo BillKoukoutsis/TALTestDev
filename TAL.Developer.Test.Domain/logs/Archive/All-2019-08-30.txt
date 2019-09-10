@@ -1,0 +1,2 @@
+2019-08-29 16:36:59.7981|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Cannot insert duplicate key row in object 'dbo.tblGroups' with unique index 'IX_tblGroups'. The duplicate key value is (Admins).
+The statement has been terminated.|
