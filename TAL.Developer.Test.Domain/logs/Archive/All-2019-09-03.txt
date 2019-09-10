@@ -1,5 +1,0 @@
-2019-09-02 10:29:43.4026|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-02 does not match start date 2019-09-01 .|
-2019-09-02 10:29:50.4973|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-02 does not match start date 2019-09-01 .|
-2019-09-02 10:30:07.4736|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-03 does not match start date 2019-09-01 .|
-2019-09-02 11:10:54.1742|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-16 does not match start date 2019-09-02 .|
-2019-09-02 11:11:03.1127|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-01 does not match start date 2019-09-02 .|

@@ -10,7 +10,6 @@ import 'rxjs/add/observable/throw';
 import { Employee } from "../models/Employee.model";
 
 import { BaseService } from '../services/base.service'
-import { Credentials } from '../models/Credentials.model';
 
 @Injectable()
 export class EmployeesService extends BaseService {
@@ -40,18 +39,6 @@ export class EmployeesService extends BaseService {
   getById(id: number): Observable<Employee> {
 
     return this.http.get(this.apiUrl + 'api/employees/getbyid/' + id, { withCredentials: true })
-      .map((response: Response) => {
-        return this.translateResponse(response);
-      })
-      .catch((error: any): Observable<any> => {
-        return this.translateThenThrowError(error);
-      })
-
-  }
-
-  getByCredentials(credentials: Credentials): Observable<Employee> {
-
-    return this.http.post(this.apiUrl + 'api/employees/getbycredentials', credentials, { withCredentials: true })
       .map((response: Response) => {
         return this.translateResponse(response);
       })

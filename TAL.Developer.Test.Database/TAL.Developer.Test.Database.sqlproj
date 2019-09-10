@@ -62,8 +62,9 @@
     <Folder Include="Create and Populate Script" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Create and Populate Script\DBBuild.sql" />
-    <None Include="The Database\TAL.mdf" />
+    <None Include="The Database\TAL.mdf">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
     <None Include="The Database\TAL_log.ldf" />
   </ItemGroup>
 </Project>

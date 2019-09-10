@@ -9,7 +9,6 @@ import { GroupsService } from './services/groups.service';
 import { TimezonesService } from './services/timezones.service';
 import { EmployeesService } from './services/employees.service';
 import { TimesheetsService } from './services/timesheets.service';
-import { SecurityService } from './services/security.service';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
@@ -71,7 +70,6 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
     TimezonesService,
     EmployeesService,
     TimesheetsService,
-    SecurityService,
     // use aus locale for datetime picker
     { provide: OWL_DATE_TIME_LOCALE, useValue: 'en-AU' },
   ],

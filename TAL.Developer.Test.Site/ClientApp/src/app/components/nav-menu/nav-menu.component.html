@@ -17,17 +17,17 @@
                         <span class='glyphicon glyphicon-home'></span> Home
                     </a>
                 </li>
-                <li *ngIf="securityService.group.name == 'Admins'" [routerLinkActive]='["link-active"]'>
+                <li [routerLinkActive]='["link-active"]'>
                     <a [routerLink]='["/list-groups"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-th-list'></span> List Groups
                     </a>
                 </li>
-                <li *ngIf="securityService.group.name == 'Admins'" [routerLinkActive]='["link-active"]'>
+                <li [routerLinkActive]='["link-active"]'>
                     <a [routerLink]='["/list-timezones"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-th-list'></span> List Timezones
                     </a>
                 </li>
-                <li *ngIf="securityService.group.name == 'Admins'" [routerLinkActive]='["link-active"]'>
+                <li [routerLinkActive]='["link-active"]'>
                     <a [routerLink]='["/list-employees"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-th-list'></span> List Employees
                     </a>

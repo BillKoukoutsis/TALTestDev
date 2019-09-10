@@ -1,3 +1,0 @@
-2019-09-01 16:31:29.2841|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-12 does not match start date 2019-09-01 .|
-2019-09-01 16:31:40.7542|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet end date 2019-09-12 does not match start date 2019-09-01 .|
-2019-09-01 16:38:48.5555|RITEQ.Developer.Test.Domain.Logging.NLogger.LogError|Timesheet saved start date 2001-01-01 does not match new start date 2019-01-01 .|

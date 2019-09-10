@@ -9,7 +9,6 @@ import { Timezone } from '../../models/timezone.model';
 import { TimesheetsService } from '../../services/timesheets.service'
 import { EmployeesService } from '../../services/employees.service';
 import { TimezonesService } from '../../services/timezones.service';
-import { SecurityService } from '../../services/security.service';
 
 
 @Component({
@@ -22,7 +21,6 @@ export class EditTimesheetComponent {
   public timesheetsService: TimesheetsService;
   public employeesService: EmployeesService;
   public timezonesService: TimezonesService;
-  public securityService: SecurityService;
 
   public timesheet: Timesheet;
   public employees: Employee[];
@@ -39,14 +37,13 @@ export class EditTimesheetComponent {
   private inputTimesheetRate: NgModel;
 
 
-  constructor(router: Router, route: ActivatedRoute, timesheetsService: TimesheetsService, employeesService: EmployeesService, timezonesService: TimezonesService, securityService: SecurityService) {
+  constructor(router: Router, route: ActivatedRoute, timesheetsService: TimesheetsService, employeesService: EmployeesService, timezonesService: TimezonesService) {
 
     this.router = router;
     this.route = route;
     this.timesheetsService = timesheetsService;
     this.employeesService = employeesService;
     this.timezonesService = timezonesService;
-    this.securityService = securityService;
 
   }
 
@@ -93,11 +90,11 @@ export class EditTimesheetComponent {
     if (this.id == 0) {
       this.timesheet = <Timesheet>{};
       this.timesheet.id = 0;
-      this.timesheet.employeeId = this.securityService.employee.id;
-      this.timesheet.timezoneId = this.securityService.employee.timezoneId;
+      this.timesheet.employeeId = 0;
+      this.timesheet.timezoneId = 0;
       this.timesheet.startDate = null;
       this.timesheet.endDate = null;
-      this.timesheet.rate = this.securityService.employee.rate;
+      this.timesheet.rate = 0;
       return;
     }
 

@@ -42,7 +42,7 @@ namespace TAL.Developer.Test.Domain
             System.UriBuilder uri = new System.UriBuilder(codeBase);
             string path = System.Uri.UnescapeDataString(uri.Path);
             var parent = System.IO.Directory.GetParent(path);
-            while (parent.Name != "TALDevTest")
+            while (parent.Name != "TALTestDev")
             {
                 parent = System.IO.Directory.GetParent(parent.FullName);
             }

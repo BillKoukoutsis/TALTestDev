@@ -1,62 +1,10 @@
-<div *ngIf="securityService.loggedIn" class='container-fluid'>
+<div class='container-fluid'>
   <div class='row'>
     <div class='col-sm-3'>
       <app-nav-menu></app-nav-menu>
     </div>
     <div class='col-sm-9 body-content'>
-      <div style="position:absolute;width:90%;text-align:right">
-        {{ securityService.employee.username }} ({{ securityService.group.name }}) <button class="btn btn-primary" type="button" (click)="resetSecurity()">Logout</button>
-      </div>
       <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
-
-<div *ngIf="!securityService.loggedIn" class="modal" tabindex="-1" role="dialog" id="loginScreen" name="loginScreen" data-toggle="modal" data-target="#loginScreen" #loginScreen>
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <div class="form-group row">
-          <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputUsername" name="inputUsername" placeholder="Username" [(ngModel)]="credentials.username" [ngModelOptions]="{standalone: true}" required maxlength="50" #inputUsername="ngModel">
-            <div *ngIf="inputUsername.invalid && (inputUsername.dirty || inputUsername.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
-              <div *ngIf="inputUsername.errors.required">
-                Username is required.
-              </div>
-              <div *ngIf="inputUsername.errors.maxlength">
-                Username must be at most 50 characters long.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" [(ngModel)]="credentials.password" [ngModelOptions]="{standalone: true}" required maxlength="50" #inputPassword="ngModel">
-            <div *ngIf="inputPassword.invalid && (inputPassword.dirty || inputPassword.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
-              <div *ngIf="inputPassword.errors.required">
-                Password is required.
-              </div>
-              <div *ngIf="inputPassword.errors.maxlength">
-                Password must be at most 50 characters long.
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="initSecurity()">Login</button>
-      </div>
     </div>
   </div>
 </div>
