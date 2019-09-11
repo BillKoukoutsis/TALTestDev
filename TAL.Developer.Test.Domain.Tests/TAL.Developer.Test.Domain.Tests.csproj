@@ -165,10 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
-    <Compile Include="Controllers\EmployeesControllerTest.cs" />
-    <Compile Include="Controllers\TimesheetsControllerTest.cs" />
-    <Compile Include="Controllers\TimezonesControllerTest.cs" />
-    <Compile Include="Controllers\GroupsControllerTest.cs" />
+    <Compile Include="Controllers\MembersControllerTest.cs" />
+    <Compile Include="Controllers\OccupationsControllerTest.cs" />
+    <Compile Include="Controllers\OccupationRatingsControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

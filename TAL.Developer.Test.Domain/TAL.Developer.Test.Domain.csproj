@@ -188,75 +188,49 @@
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\EmployeesController.cs" />
-    <Compile Include="Controllers\TimesheetsController.cs" />
-    <Compile Include="Controllers\TimezonesController.cs" />
-    <Compile Include="Controllers\GroupsController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\OccupationsController.cs" />
+    <Compile Include="Controllers\OccupationRatingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logging\NLogger.cs" />
     <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Models\CredentialsModel.cs" />
-    <Compile Include="Models\EmployeesModel.cs" />
-    <Compile Include="Models\TimesheetsReportModel.cs" />
-    <Compile Include="Models\TimesheetsModel.cs" />
-    <Compile Include="Models\TimezonesModel.cs" />
-    <Compile Include="Models\GroupsModel.cs" />
+    <Compile Include="Models\MembersModel.cs" />
+    <Compile Include="Models\OccupationsModel.cs" />
+    <Compile Include="Models\OccupationRatingsModel.cs" />
     <Compile Include="AutoMapperConfig.cs" />
-    <Compile Include="Repositories\IEmployeesRepository.cs" />
-    <Compile Include="Repositories\ITimesheetsRepository.cs" />
-    <Compile Include="Repositories\ITimezonesRepository.cs" />
-    <Compile Include="Repositories\EmployeesRepository.cs" />
-    <Compile Include="Repositories\TimesheetsRepository.cs" />
-    <Compile Include="Repositories\TimezonesRepository.cs" />
-    <Compile Include="Repositories\GroupsRepository.cs" />
-    <Compile Include="Repositories\IGroupsRepository.cs" />
+    <Compile Include="Repositories\IMembersRepository.cs" />
+    <Compile Include="Repositories\IOccupationsRepository.cs" />
+    <Compile Include="Repositories\IOccupationRatingsRepository.cs" />
+    <Compile Include="Repositories\MembersRepository.cs" />
+    <Compile Include="Repositories\OccupationsRepository.cs" />
+    <Compile Include="Repositories\OccupationRatingsRepository.cs" />
     <Compile Include="ServiceSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NInjectConfig.cs" />
-    <Compile Include="Services\IEmployeesService.cs" />
-    <Compile Include="Services\EmployeesService.cs" />
-    <Compile Include="Services\ITimesheetsService.cs" />
-    <Compile Include="Services\TimesheetsService.cs" />
-    <Compile Include="Services\TimezonesService.cs" />
-    <Compile Include="Services\GroupsService.cs" />
-    <Compile Include="Services\ITimezonesService.cs" />
-    <Compile Include="Services\IGroupsService.cs" />
-    <Compile Include="spEmployees_GetByCredentials_Result.cs">
+    <Compile Include="Services\IMembersService.cs" />
+    <Compile Include="Services\IOccupationsService.cs" />
+    <Compile Include="Services\IOccupationRatingsService.cs" />
+    <Compile Include="Services\MembersService.cs" />
+    <Compile Include="Services\OccupationsService.cs" />
+    <Compile Include="Services\OccupationRatingsService.cs" />
+    <Compile Include="spMembers_GetById_Result.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="spEmployees_GetById_Result.cs">
+    <Compile Include="spMembers_GetList_Result.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="spEmployees_GetList_Result.cs">
+    <Compile Include="spOccupationRatings_GetById_Result.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="spGroups_GetById_Result.cs">
+    <Compile Include="spOccupationRatings_GetList_Result.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="spGroups_GetList_Result.cs">
+    <Compile Include="spOccupations_GetById_Result.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="spTimesheets_GetById_Result.cs">
-      <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spTimesheets_GetList_Result.cs">
-      <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spTimesheets_ReportByDate_Result.cs">
-      <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spTimezones_GetById_Result.cs">
-      <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spTimezones_GetList_Result.cs">
-      <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
+    <Compile Include="spOccupations_GetList_Result.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
@@ -275,16 +249,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblEmployee.cs">
+    <Compile Include="tblMember.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblGroup.cs">
+    <Compile Include="tblOccupation.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblTimesheet.cs">
-      <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblTimezone.cs">
+    <Compile Include="tblOccupationRating.cs">
       <DependentUpon>TALTestEntitiesModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

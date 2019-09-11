@@ -27,185 +27,60 @@ namespace TAL.Developer.Test.Domain
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tblEmployee> tblEmployees { get; set; }
-        public virtual DbSet<tblGroup> tblGroups { get; set; }
-        public virtual DbSet<tblTimesheet> tblTimesheets { get; set; }
-        public virtual DbSet<tblTimezone> tblTimezones { get; set; }
+        public virtual DbSet<tblMember> tblMembers { get; set; }
+        public virtual DbSet<tblOccupationRating> tblOccupationRatings { get; set; }
+        public virtual DbSet<tblOccupation> tblOccupations { get; set; }
     
-        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var new_diagramnameParameter = new_diagramname != null ?
-                new ObjectParameter("new_diagramname", new_diagramname) :
-                new ObjectParameter("new_diagramname", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
-        }
-    
-        public virtual int sp_upgraddiagrams()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual int spEmployees_DeleteById(Nullable<int> id)
+        public virtual int spMembers_DeleteById(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
                 new ObjectParameter("Id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEmployees_DeleteById", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMembers_DeleteById", idParameter);
         }
     
-        public virtual int spEmployees_DeleteTestData()
+        public virtual int spMembers_DeleteTestData()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEmployees_DeleteTestData");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMembers_DeleteTestData");
         }
     
-        public virtual ObjectResult<spEmployees_GetByCredentials_Result> spEmployees_GetByCredentials(string username, string password)
-        {
-            var usernameParameter = username != null ?
-                new ObjectParameter("Username", username) :
-                new ObjectParameter("Username", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("Password", password) :
-                new ObjectParameter("Password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spEmployees_GetByCredentials_Result>("spEmployees_GetByCredentials", usernameParameter, passwordParameter);
-        }
-    
-        public virtual ObjectResult<spEmployees_GetById_Result> spEmployees_GetById(Nullable<int> id)
+        public virtual ObjectResult<spMembers_GetById_Result> spMembers_GetById(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
                 new ObjectParameter("Id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spEmployees_GetById_Result>("spEmployees_GetById", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMembers_GetById_Result>("spMembers_GetById", idParameter);
         }
     
-        public virtual ObjectResult<spEmployees_GetList_Result> spEmployees_GetList()
+        public virtual ObjectResult<spMembers_GetList_Result> spMembers_GetList()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spEmployees_GetList_Result>("spEmployees_GetList");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMembers_GetList_Result>("spMembers_GetList");
         }
     
-        public virtual ObjectResult<Nullable<decimal>> spEmployees_Insert(string name, string username, string password, Nullable<int> groupId, Nullable<int> timezoneId, Nullable<decimal> rate)
+        public virtual ObjectResult<Nullable<decimal>> spMembers_Insert(string name, Nullable<System.DateTime> dOB, Nullable<int> occupationId, Nullable<decimal> sumInsured)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            var usernameParameter = username != null ?
-                new ObjectParameter("Username", username) :
-                new ObjectParameter("Username", typeof(string));
+            var dOBParameter = dOB.HasValue ?
+                new ObjectParameter("DOB", dOB) :
+                new ObjectParameter("DOB", typeof(System.DateTime));
     
-            var passwordParameter = password != null ?
-                new ObjectParameter("Password", password) :
-                new ObjectParameter("Password", typeof(string));
+            var occupationIdParameter = occupationId.HasValue ?
+                new ObjectParameter("OccupationId", occupationId) :
+                new ObjectParameter("OccupationId", typeof(int));
     
-            var groupIdParameter = groupId.HasValue ?
-                new ObjectParameter("GroupId", groupId) :
-                new ObjectParameter("GroupId", typeof(int));
+            var sumInsuredParameter = sumInsured.HasValue ?
+                new ObjectParameter("SumInsured", sumInsured) :
+                new ObjectParameter("SumInsured", typeof(decimal));
     
-            var timezoneIdParameter = timezoneId.HasValue ?
-                new ObjectParameter("TimezoneId", timezoneId) :
-                new ObjectParameter("TimezoneId", typeof(int));
-    
-            var rateParameter = rate.HasValue ?
-                new ObjectParameter("Rate", rate) :
-                new ObjectParameter("Rate", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spEmployees_Insert", nameParameter, usernameParameter, passwordParameter, groupIdParameter, timezoneIdParameter, rateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spMembers_Insert", nameParameter, dOBParameter, occupationIdParameter, sumInsuredParameter);
         }
     
-        public virtual int spEmployees_UpdateById(Nullable<int> id, string name, string username, string password, Nullable<int> groupId, Nullable<int> timezoneId, Nullable<decimal> rate)
+        public virtual int spMembers_UpdateById(Nullable<int> id, string name, Nullable<System.DateTime> dOB, Nullable<int> occupationId, Nullable<decimal> sumInsured)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
@@ -215,204 +90,63 @@ namespace TAL.Developer.Test.Domain
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            var usernameParameter = username != null ?
-                new ObjectParameter("Username", username) :
-                new ObjectParameter("Username", typeof(string));
+            var dOBParameter = dOB.HasValue ?
+                new ObjectParameter("DOB", dOB) :
+                new ObjectParameter("DOB", typeof(System.DateTime));
     
-            var passwordParameter = password != null ?
-                new ObjectParameter("Password", password) :
-                new ObjectParameter("Password", typeof(string));
+            var occupationIdParameter = occupationId.HasValue ?
+                new ObjectParameter("OccupationId", occupationId) :
+                new ObjectParameter("OccupationId", typeof(int));
     
-            var groupIdParameter = groupId.HasValue ?
-                new ObjectParameter("GroupId", groupId) :
-                new ObjectParameter("GroupId", typeof(int));
+            var sumInsuredParameter = sumInsured.HasValue ?
+                new ObjectParameter("SumInsured", sumInsured) :
+                new ObjectParameter("SumInsured", typeof(decimal));
     
-            var timezoneIdParameter = timezoneId.HasValue ?
-                new ObjectParameter("TimezoneId", timezoneId) :
-                new ObjectParameter("TimezoneId", typeof(int));
-    
-            var rateParameter = rate.HasValue ?
-                new ObjectParameter("Rate", rate) :
-                new ObjectParameter("Rate", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEmployees_UpdateById", idParameter, nameParameter, usernameParameter, passwordParameter, groupIdParameter, timezoneIdParameter, rateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMembers_UpdateById", idParameter, nameParameter, dOBParameter, occupationIdParameter, sumInsuredParameter);
         }
     
-        public virtual int spGroups_DeleteById(Nullable<int> id)
+        public virtual int spOccupations_DeleteById(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
                 new ObjectParameter("Id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spGroups_DeleteById", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spOccupations_DeleteById", idParameter);
         }
     
-        public virtual int spGroups_DeleteTestData()
+        public virtual int spOccupations_DeleteTestData()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spGroups_DeleteTestData");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spOccupations_DeleteTestData");
         }
     
-        public virtual ObjectResult<spGroups_GetById_Result> spGroups_GetById(Nullable<int> id)
+        public virtual ObjectResult<spOccupations_GetById_Result> spOccupations_GetById(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
                 new ObjectParameter("Id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGroups_GetById_Result>("spGroups_GetById", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spOccupations_GetById_Result>("spOccupations_GetById", idParameter);
         }
     
-        public virtual ObjectResult<spGroups_GetList_Result> spGroups_GetList()
+        public virtual ObjectResult<spOccupations_GetList_Result> spOccupations_GetList()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGroups_GetList_Result>("spGroups_GetList");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spOccupations_GetList_Result>("spOccupations_GetList");
         }
     
-        public virtual ObjectResult<Nullable<decimal>> spGroups_Insert(string name)
+        public virtual ObjectResult<Nullable<decimal>> spOccupations_Insert(string name, Nullable<int> occupationRatingId)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spGroups_Insert", nameParameter);
+            var occupationRatingIdParameter = occupationRatingId.HasValue ?
+                new ObjectParameter("OccupationRatingId", occupationRatingId) :
+                new ObjectParameter("OccupationRatingId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spOccupations_Insert", nameParameter, occupationRatingIdParameter);
         }
     
-        public virtual int spGroups_UpdateById(Nullable<int> id, string name)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(int));
-    
-            var nameParameter = name != null ?
-                new ObjectParameter("Name", name) :
-                new ObjectParameter("Name", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spGroups_UpdateById", idParameter, nameParameter);
-        }
-    
-        public virtual int spTimesheets_DeleteById(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spTimesheets_DeleteById", idParameter);
-        }
-    
-        public virtual int spTimesheets_DeleteTestData()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spTimesheets_DeleteTestData");
-        }
-    
-        public virtual ObjectResult<spTimesheets_GetById_Result> spTimesheets_GetById(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spTimesheets_GetById_Result>("spTimesheets_GetById", idParameter);
-        }
-    
-        public virtual ObjectResult<spTimesheets_GetList_Result> spTimesheets_GetList()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spTimesheets_GetList_Result>("spTimesheets_GetList");
-        }
-    
-        public virtual ObjectResult<Nullable<decimal>> spTimesheets_Insert(Nullable<int> employeeId, Nullable<int> timezoneId, Nullable<System.DateTime> startDate, Nullable<decimal> rate)
-        {
-            var employeeIdParameter = employeeId.HasValue ?
-                new ObjectParameter("EmployeeId", employeeId) :
-                new ObjectParameter("EmployeeId", typeof(int));
-    
-            var timezoneIdParameter = timezoneId.HasValue ?
-                new ObjectParameter("TimezoneId", timezoneId) :
-                new ObjectParameter("TimezoneId", typeof(int));
-    
-            var startDateParameter = startDate.HasValue ?
-                new ObjectParameter("StartDate", startDate) :
-                new ObjectParameter("StartDate", typeof(System.DateTime));
-    
-            var rateParameter = rate.HasValue ?
-                new ObjectParameter("Rate", rate) :
-                new ObjectParameter("Rate", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spTimesheets_Insert", employeeIdParameter, timezoneIdParameter, startDateParameter, rateParameter);
-        }
-    
-        public virtual ObjectResult<spTimesheets_ReportByDate_Result> spTimesheets_ReportByDate(Nullable<System.DateTime> date, string timezone)
-        {
-            var dateParameter = date.HasValue ?
-                new ObjectParameter("Date", date) :
-                new ObjectParameter("Date", typeof(System.DateTime));
-    
-            var timezoneParameter = timezone != null ?
-                new ObjectParameter("Timezone", timezone) :
-                new ObjectParameter("Timezone", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spTimesheets_ReportByDate_Result>("spTimesheets_ReportByDate", dateParameter, timezoneParameter);
-        }
-    
-        public virtual int spTimesheets_UpdateById(Nullable<int> id, Nullable<int> timezoneId, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, Nullable<decimal> rate)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(int));
-    
-            var timezoneIdParameter = timezoneId.HasValue ?
-                new ObjectParameter("TimezoneId", timezoneId) :
-                new ObjectParameter("TimezoneId", typeof(int));
-    
-            var startDateParameter = startDate.HasValue ?
-                new ObjectParameter("StartDate", startDate) :
-                new ObjectParameter("StartDate", typeof(System.DateTime));
-    
-            var endDateParameter = endDate.HasValue ?
-                new ObjectParameter("EndDate", endDate) :
-                new ObjectParameter("EndDate", typeof(System.DateTime));
-    
-            var rateParameter = rate.HasValue ?
-                new ObjectParameter("Rate", rate) :
-                new ObjectParameter("Rate", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spTimesheets_UpdateById", idParameter, timezoneIdParameter, startDateParameter, endDateParameter, rateParameter);
-        }
-    
-        public virtual int spTimezones_DeleteById(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spTimezones_DeleteById", idParameter);
-        }
-    
-        public virtual int spTimezones_DeleteTestData()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spTimezones_DeleteTestData");
-        }
-    
-        public virtual ObjectResult<spTimezones_GetById_Result> spTimezones_GetById(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spTimezones_GetById_Result>("spTimezones_GetById", idParameter);
-        }
-    
-        public virtual ObjectResult<spTimezones_GetList_Result> spTimezones_GetList()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spTimezones_GetList_Result>("spTimezones_GetList");
-        }
-    
-        public virtual ObjectResult<Nullable<decimal>> spTimezones_Insert(string name)
-        {
-            var nameParameter = name != null ?
-                new ObjectParameter("Name", name) :
-                new ObjectParameter("Name", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spTimezones_Insert", nameParameter);
-        }
-    
-        public virtual int spTimezones_UpdateById(Nullable<int> id, string name)
+        public virtual int spOccupations_UpdateById(Nullable<int> id, string name, Nullable<int> occupationRatingId)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
@@ -422,7 +156,69 @@ namespace TAL.Developer.Test.Domain
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spTimezones_UpdateById", idParameter, nameParameter);
+            var occupationRatingIdParameter = occupationRatingId.HasValue ?
+                new ObjectParameter("OccupationRatingId", occupationRatingId) :
+                new ObjectParameter("OccupationRatingId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spOccupations_UpdateById", idParameter, nameParameter, occupationRatingIdParameter);
+        }
+    
+        public virtual int spOccupationRatings_DeleteById(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spOccupationRatings_DeleteById", idParameter);
+        }
+    
+        public virtual int spOccupationRatings_DeleteTestData()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spOccupationRatings_DeleteTestData");
+        }
+    
+        public virtual ObjectResult<spOccupationRatings_GetById_Result> spOccupationRatings_GetById(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spOccupationRatings_GetById_Result>("spOccupationRatings_GetById", idParameter);
+        }
+    
+        public virtual ObjectResult<spOccupationRatings_GetList_Result> spOccupationRatings_GetList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spOccupationRatings_GetList_Result>("spOccupationRatings_GetList");
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> spOccupationRatings_Insert(string name, Nullable<decimal> factor)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var factorParameter = factor.HasValue ?
+                new ObjectParameter("Factor", factor) :
+                new ObjectParameter("Factor", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spOccupationRatings_Insert", nameParameter, factorParameter);
+        }
+    
+        public virtual int spOccupationRatings_UpdateById(Nullable<int> id, string name, Nullable<decimal> factor)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var factorParameter = factor.HasValue ?
+                new ObjectParameter("Factor", factor) :
+                new ObjectParameter("Factor", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spOccupationRatings_UpdateById", idParameter, nameParameter, factorParameter);
         }
     }
 }

@@ -5,14 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ee532f7d5b6343f383f49c531502db0e" Name="Diagram1">
-        <EntityTypeShape EntityType="TALTestEntitiesModel.tblEmployee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TALTestEntitiesModel.tblGroup" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TALTestEntitiesModel.tblTimesheet" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TALTestEntitiesModel.tblTimezone" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <AssociationConnector Association="TALTestEntitiesModel.FK_tblEmployees_tblGroups" ManuallyRouted="false" />
-        <AssociationConnector Association="TALTestEntitiesModel.FK_tblEmployees_tblTimezones" ManuallyRouted="false" />
-        <AssociationConnector Association="TALTestEntitiesModel.FK_tblTimesheets_tblEmployees" ManuallyRouted="false" />
-        <AssociationConnector Association="TALTestEntitiesModel.FK_tblTimesheets_tblTimezones" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TALTestEntitiesModel.tblMember" Width="1.5" PointX="5.375" PointY="1.5" />
+        <EntityTypeShape EntityType="TALTestEntitiesModel.tblOccupationRating" Width="1.5" PointX="0.875" PointY="1.75" />
+        <EntityTypeShape EntityType="TALTestEntitiesModel.tblOccupation" Width="1.5" PointX="3.125" PointY="1.625" />
+        <AssociationConnector Association="TALTestEntitiesModel.FK_tblMembers_tblOccupations" />
+        <AssociationConnector Association="TALTestEntitiesModel.FK_tblOccupations_tblOccupationRatings" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

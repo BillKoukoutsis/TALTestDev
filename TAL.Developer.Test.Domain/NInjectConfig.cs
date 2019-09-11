@@ -10,16 +10,14 @@ namespace TAL.Developer.Test.Domain
         public static void RegisterServices(KernelBase kernel)
         {
             // Services
-            kernel.Bind<IGroupsService>().To<GroupsService>();
-            kernel.Bind<ITimezonesService>().To<TimezonesService>();
-            kernel.Bind<IEmployeesService>().To<EmployeesService>();
-            kernel.Bind<ITimesheetsService>().To<TimesheetsService>();
+            kernel.Bind<IOccupationRatingsService>().To<OccupationRatingsService>();
+            kernel.Bind<IOccupationsService>().To<OccupationsService>();
+            kernel.Bind<IMembersService>().To<MembersService>();
 
             // Repositories
-            kernel.Bind<IGroupsRepository>().To<GroupsRepository>();
-            kernel.Bind<ITimezonesRepository>().To<TimezonesRepository>();
-            kernel.Bind<IEmployeesRepository>().To<EmployeesRepository>();
-            kernel.Bind<ITimesheetsRepository>().To<TimesheetsRepository>();
+            kernel.Bind<IOccupationRatingsRepository>().To<OccupationRatingsRepository>();
+            kernel.Bind<IOccupationsRepository>().To<OccupationsRepository>();
+            kernel.Bind<IMembersRepository>().To<MembersRepository>();
 
             // Libraries
             kernel.Bind<ILogger>().To<NLogger>();
