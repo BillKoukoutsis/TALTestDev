@@ -1,0 +1,3 @@
+2019-09-12 16:51:52.5515|TAL.Developer.Test.Domain.Logging.NLogger.LogError|The underlying provider failed on Open.|
+2019-09-12 16:51:52.5515|TAL.Developer.Test.Domain.Logging.NLogger.LogError|The underlying provider failed on Open.|
+2019-09-12 16:51:52.5515|TAL.Developer.Test.Domain.Logging.NLogger.LogError|The underlying provider failed on Open.|
