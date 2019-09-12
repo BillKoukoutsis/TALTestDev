@@ -42,7 +42,7 @@ export class MembersService extends BaseService {
             });
 
         }
-        
+
         return members;
       })
       .catch((error: any): Observable<any> => {
@@ -98,7 +98,7 @@ export class MembersService extends BaseService {
   calculatePremium(member: Member): Observable<number> {
 
     return this.http.post(this.apiUrl + 'api/members/calculatepremium', member, { withCredentials: true })
-      .map((response: Response): Observable<any> => {
+      .map((response: Response): Observable<number> => {
         return this.translateResponse(response);
       })
       .catch((error: any): Observable<any> => {

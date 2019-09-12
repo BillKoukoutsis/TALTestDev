@@ -133,11 +133,6 @@ p.msochpdefault, li.msochpdefault, div.msochpdefault
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -156,43 +151,44 @@ ul
 <p class=MsoNormal>&nbsp;</p>
 
 <p class=MsoListParagraph style='margin-left:37.2pt;text-indent:-19.2pt'>1.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Download
-solution from Github @ <a href="https://github.com/BillKoukoutsis/TALTestDev">https://github.com/BillKoukoutsis/TALTestDev</a></p>
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Download solution from Github @ <a
+href="https://github.com/BillKoukoutsis/TALTestDev">https://github.com/BillKoukoutsis/TALTestDev</a></p>
 
 <p class=MsoListParagraph style='margin-left:37.2pt;text-indent:-19.2pt'>2.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Extract
-the solution to a temp folder</p>
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Extract the solution to a temp folder</p>
 
 <p class=MsoListParagraph style='margin-left:37.2pt;text-indent:-19.2pt'>3.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Open
-the solution (<b>TAL.Developer.Test.sln</b>).</p>
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open the solution (<b>TAL.Developer.Test.sln</b>).</p>
 
-<p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font-size:
+<p class=MsoListParagraph style='text-indent:-18.0pt'>4.<span style='font-size:
 7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span>Set the web project <b>TAL.Developer.Test.Site</b> as the startup
 project.</p>
 
 <p class=MsoListParagraph style='text-indent:-18.0pt'>5.<span style='font-size:
 7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span>Rebuild the solution (might take a couple of minutes as packages will
-need to download at the same time).</p>
+</span>Set <b>TAL.Developer.Test.Site </b>Properties &gt; Debug &gt; <span
+style='font-size:9.5pt;line-height:105%;font-family:Consolas;color:black;
+background:white'>'</span>App Url:<span style='font-size:9.5pt;line-height:
+105%;font-family:Consolas;color:black;background:white'>'</span> to <b><span
+style='color:red'>http://localhost:63628/</span></b>.</p>
 
-<p class=MsoListParagraph style='text-indent:-18.0pt'>6.  <span
-style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;</span>Run
-the solution (in IIS Express).</p>
+<p class=MsoListParagraph style='text-indent:-18.0pt'>6.<span style='font-size:
+7.0pt;line-height:105%;font-family:"Times New Roman",serif'>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Rebuild the solution (might take a couple
+of minutes as packages will need to download at the same time).</p>
 
-<p class=MsoListParagraph style='text-indent:-18.0pt'>7.  <span
-style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;</span>Due
-to <b>IISEXPRESS</b> CORS quirkiness (re bug) we first test the API</p>
+<p class=MsoListParagraph style='text-indent:-18.0pt'>7.<span style='font-size:
+7.0pt;line-height:105%;font-family:"Times New Roman",serif'>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Run the solution (in IIS Express).</p>
 
-<p class=MsoListParagraph>a.<span style='font-size:7.0pt;line-height:105%;
-font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Open
-a separate tab in the same browser instance and test the API by entering <a
-href="http://localhost:56900/api/members/getlist">http://localhost:56900/api/members/getlist</a>.</p>
-
-<p class=MsoListParagraph style='text-indent:-18.0pt'>8. <span
-style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;</span>Use
-the Navbar to navigate the application</p>
+<p class=MsoListParagraph style='text-indent:-18.0pt'>8.<span style='font-size:
+7.0pt;line-height:105%;font-family:"Times New Roman",serif'>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Use the Navbar to navigate the
+application.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -260,8 +256,8 @@ handle CORS</p>
 
 <p class=MsoListParagraph style='text-indent:-18.0pt'>2.<span style='font-size:
 7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span>Created datastore (TAL.mdf) <b>SQL Server 2016</b> and reference it in
-new Database project (<b>TAL.Developer.Test.Database</b>).</p>
+</span>Created datastore (TAL.mdf) <b>SQL Server 2016</b> and reference it in new
+Database project (<b>TAL.Developer.Test.Database</b>).</p>
 
 <p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font-size:
 7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
