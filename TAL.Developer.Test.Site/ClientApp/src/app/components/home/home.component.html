@@ -128,14 +128,16 @@ p.msochpdefault, li.msochpdefault, div.msochpdefault
 	font-family:"Times New Roman",serif;}
 .MsoChpDefault
 	{font-size:10.0pt;}
-.MsoPapDefault
-	{margin-bottom:8.0pt;
-	line-height:105%;}
 @page WordSection1
 	{size:595.3pt 841.9pt;
 	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
 div.WordSection1
 	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -146,6 +148,51 @@ div.WordSection1
 <div class=WordSection1>
 
 <h1>TAL Developer Test Notes</h1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2>Running the Solution</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:37.2pt;text-indent:-19.2pt'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Download
+solution from Github @ <a href="https://github.com/BillKoukoutsis/TALTestDev">https://github.com/BillKoukoutsis/TALTestDev</a></p>
+
+<p class=MsoListParagraph style='margin-left:37.2pt;text-indent:-19.2pt'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Extract
+the solution to a temp folder</p>
+
+<p class=MsoListParagraph style='margin-left:37.2pt;text-indent:-19.2pt'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Open
+the solution (<b>TAL.Developer.Test.sln</b>).</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>3.<span style='font-size:
+7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Set the web project <b>TAL.Developer.Test.Site</b> as the startup
+project.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>5.<span style='font-size:
+7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Rebuild the solution (might take a couple of minutes as packages will
+need to download at the same time).</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>6.  <span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;</span>Run
+the solution (in IIS Express).</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>7.  <span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;</span>Due
+to <b>IISEXPRESS</b> CORS quirkiness (re bug) we first test the API</p>
+
+<p class=MsoListParagraph>a.<span style='font-size:7.0pt;line-height:105%;
+font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Open
+a separate tab in the same browser instance and test the API by entering <a
+href="http://localhost:56900/api/members/getlist">http://localhost:56900/api/members/getlist</a>.</p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'>8. <span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;</span>Use
+the Navbar to navigate the application</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -162,8 +209,8 @@ time:</span></p>
 
 <p class=MsoListParagraph style='text-indent:-18.0pt'>1.<span style='font-size:
 7.0pt;line-height:105%;font-family:"Times New Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span>Although unit tests were done for the API, the application needs Angular
-UI unit tests using Jasmine and Karma.</p>
+</span>Although thorough unit tests were done for the API, the application
+needs Angular UI unit tests using Jasmine and Karma.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -172,9 +219,9 @@ UI unit tests using Jasmine and Karma.</p>
 <p class=MsoNormal>&nbsp;</p>
 
 <p class=MsoNormal>It's possible that the current class library
-(TAL.Developer.Test.Domain) is being used by more than one application including
-this website. We also want to make our Domain knowledge available to all our
-applications on all our platforms so we:</p>
+(TAL.Developer.Test.Domain) is being used by more than one application
+including this website. We also want to make our Domain knowledge available to
+all our applications on all our platforms so we:</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
