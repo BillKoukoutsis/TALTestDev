@@ -1,0 +1,87 @@
+<h1 *ngIf="member && member.id==0">Add Member</h1>
+<h1 *ngIf="member && member.id>0">Edit Member</h1>
+
+<p *ngIf="member && member.id==0">Add new member.</p>
+<p *ngIf="member && member.id>0">Edit existing member.</p>
+
+<p *ngIf="!member"><em>Retreiving member...</em></p>
+
+<form id="membersForm" name="membersForm" #membersForm="ngForm" *ngIf="member">
+
+  <div class="form-group row">
+    <label for="inputMemberId" class="col-sm-2 col-form-label">Id</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputMemberId" placeholder="Member Id" [(ngModel)]="member.id" [ngModelOptions]="{standalone: true}" readonly>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputMemberName" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputMemberName" name="inputMemberName" placeholder="Member Name" [(ngModel)]="member.name" [ngModelOptions]="{standalone: true}" required maxlength="120" #inputMemberName="ngModel">
+      <div *ngIf="inputMemberName.invalid && (inputMemberName.dirty || inputMemberName.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputMemberName.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="inputMemberName.errors.maxlength">
+          Name must be at most 150 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputMemberDOB" class="col-sm-2 col-form-label">Date of Birth</label>
+    <div class="col-sm-10">
+      <input class="form-control btn btn-primary" id="inputMemberDOB" name="inputMemberDOB" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Member Date of Birth" [(ngModel)]="member.dob" [ngModelOptions]="{standalone: true}" #inputMemberDOB="ngModel" (dateTimeChange)="recalculatePremium()" style="text-align:left">
+      <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+      <div *ngIf="inputMemberDOB.invalid && (inputMemberDOB.dirty || inputMemberDOB.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputMemberDOB.errors.required">
+          Date if birth is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputMemberSumInsured" class="col-sm-2 col-form-label">Sum Insured ($)</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputMemberSumInsured" name="inputMemberSumInsured" placeholder="Member Sum Insured" [(ngModel)]="member.sumInsured" [ngModelOptions]="{standalone: true}" required #inputMemberSumInsured="ngModel" (change)="recalculatePremium()">
+      <div *ngIf="inputMemberSumInsured.invalid && (inputMemberSumInsured.dirty || inputMemberSumInsured.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputMemberSumInsured.errors.required">
+          Sum Insured is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputMemberOccupation" class="col-sm-2 col-form-label">Occupation</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="inputMemberOccupation" name="inputMemberOccupation" placeholder="Member Occupation" [(ngModel)]="member.occupation.id" [ngModelOptions]="{standalone: true}" required #inputMemberOccupation="ngModel" (change)="recalculatePremium()">
+        <option *ngFor="let occupation of occupations" [value]="occupation.id" [selected]="occupation.id === member.occupation.Id">{{occupation.name}}</option>
+      </select>
+      <div *ngIf="inputMemberOccupation.invalid && (inputMemberOccupation.dirty || inputMemberOccupation.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputMemberOccupation.errors.required">
+          Occupation is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputMemberPremium" class="col-sm-2 col-form-label">Premium ($/month)</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputMemberPremium" placeholder="Member Premium" [(ngModel)]="member.premium" [ngModelOptions]="{standalone: true}" readonly>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <a class="btn btn-default" [routerLink]='["/list-members"]'>
+        Cancel
+      </a>
+      <button type="submit" class="btn btn-primary" (click)="saveMember()">Save</button>
+    </div>
+  </div>
+</form>

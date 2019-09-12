@@ -79,5 +79,13 @@ namespace TAL.Developer.Test.Domain.Controllers
             return Ok(true);
         }
 
+        [HttpPost, Route("api/members/calculatepremium")]
+        public IHttpActionResult CalculatePremium(MembersModel model)
+        {
+            var result = _membersService.CalculatePremium(model);
+
+            return Ok(result);
+        }
+
     }
 }

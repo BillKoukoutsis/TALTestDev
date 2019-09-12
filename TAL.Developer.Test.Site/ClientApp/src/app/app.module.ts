@@ -5,24 +5,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { GroupsService } from './services/groups.service';
-import { TimezonesService } from './services/timezones.service';
-import { EmployeesService } from './services/employees.service';
-import { TimesheetsService } from './services/timesheets.service';
+import { OccupationRatingsService } from './services/occupation-ratings.service';
+import { OccupationsService } from './services/occupations.service';
+import { MembersService } from './services/members.service';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
-import { ListGroupsComponent } from './components/list-groups/list-groups.component';
-import { EditGroupComponent } from './components/edit-group/edit-group.component';
-import { ListTimezonesComponent } from './components/list-timezones/list-timezones.component';
-import { EditTimezoneComponent } from './components/edit-timezone/edit-timezone.component';
-import { ListEmployeesComponent } from './components/list-employees/list-employees.component';
-import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
-import { ListTimesheetsComponent } from './components/list-timesheets/list-timesheets.component';
-import { EditTimesheetComponent } from './components/edit-timesheet/edit-timesheet.component';
 
-import { TimesheetsReportComponent } from './components/timesheets-report/timesheets-report.component';
+import { ListOccupationRatingsComponent } from './components/list-occupation-ratings/list-occupation-ratings.component';
+import { EditOccupationRatingComponent } from './components/edit-occupation-rating/edit-occupation-rating.component';
+import { ListOccupationsComponent } from './components/list-occupations/list-occupations.component';
+import { EditOccupationComponent } from './components/edit-occupation/edit-occupation.component';
+import { ListMembersComponent } from './components/list-members/list-members.component';
+import { EditMemberComponent } from './components/edit-member/edit-member.component';
 
 import { HttpModule } from '@angular/http';
 
@@ -34,15 +30,12 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    ListGroupsComponent,
-    EditGroupComponent,
-    ListTimezonesComponent,
-    EditTimezoneComponent,
-    ListEmployeesComponent,
-    EditEmployeeComponent,
-    ListTimesheetsComponent,
-    EditTimesheetComponent,
-    TimesheetsReportComponent
+    ListOccupationRatingsComponent,
+    EditOccupationRatingComponent,
+    ListOccupationsComponent,
+    EditOccupationComponent,
+    ListMembersComponent,
+    EditMemberComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -54,24 +47,20 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'list-groups', component: ListGroupsComponent },
-      { path: 'edit-group/:id', component: EditGroupComponent },
-      { path: 'list-timezones', component: ListTimezonesComponent },
-      { path: 'edit-timezone/:id', component: EditTimezoneComponent },
-      { path: 'list-employees', component: ListEmployeesComponent },
-      { path: 'edit-employee/:id', component: EditEmployeeComponent },
-      { path: 'list-timesheets', component: ListTimesheetsComponent },
-      { path: 'edit-timesheet/:id', component: EditTimesheetComponent },
-      { path: 'timesheets-report', component: TimesheetsReportComponent },
+      { path: 'list-occupation-ratings', component: ListOccupationRatingsComponent },
+      { path: 'edit-occupation-rating/:id', component: EditOccupationRatingComponent },
+      { path: 'list-occupations', component: ListOccupationsComponent },
+      { path: 'edit-occupation/:id', component: EditOccupationComponent },
+      { path: 'list-members', component: ListMembersComponent },
+      { path: 'edit-member/:id', component: EditMemberComponent },
     ])
   ],
   providers: [
-    GroupsService,
-    TimezonesService,
-    EmployeesService,
-    TimesheetsService,
     // use aus locale for datetime picker
     { provide: OWL_DATE_TIME_LOCALE, useValue: 'en-AU' },
+    OccupationRatingsService,
+    OccupationsService,
+    MembersService,
   ],
   bootstrap: [AppComponent]
 })

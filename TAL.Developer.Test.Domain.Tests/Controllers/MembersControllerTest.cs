@@ -48,7 +48,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                     Name = "Mr Bill Koukoutsis [TEST]",
                     DOB = new DateTime(1969, 1, 28),
                     SumInsured = 100000M,
-                    Occupations = new OccupationsModel
+                    Occupation = new OccupationsModel
                     {
                         Id = 1 // Cleaner
                     },
@@ -59,7 +59,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                     Name = "Mr Jack Black [TEST]",
                     DOB = new DateTime(1975, 11, 2),
                     SumInsured = 1000000M,
-                    Occupations = new OccupationsModel
+                    Occupation = new OccupationsModel
                     {
                         Id = 3 // Author
                     },
@@ -70,7 +70,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                     Name = "Ms Jane Doe [TEST]",
                     DOB = new DateTime(1985, 6, 18),
                     SumInsured = 2000000M,
-                    Occupations = new OccupationsModel
+                    Occupation = new OccupationsModel
                     {
                         Id = 6 // Florist
                     },
@@ -81,12 +81,23 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                     Name = "Mr John Doe [TEST]",
                     DOB = new DateTime(1985, 6, 18),
                     SumInsured = 1000000M,
-                    Occupations = new OccupationsModel
+                    Occupation = new OccupationsModel
                     {
                         Id = 5 // Mechanic
                     },
                 });
                 _primaryKeyPool.Add(pk3.Content);
+                OkNegotiatedContentResult<decimal?> pk4 = (OkNegotiatedContentResult<decimal?>)_controller.Insert(new MembersModel()
+                {
+                    Name = "Mr Larry Hagman [TEST]",
+                    DOB = new DateTime(1932, 6, 18),
+                    SumInsured = 2000000M,
+                    Occupation = new OccupationsModel
+                    {
+                        Id = 5 // Mechanic
+                    },
+                });
+                _primaryKeyPool.Add(pk4.Content);
             }
         }
 
@@ -178,7 +189,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                 Name = "Mr Ray Price [TEST]",
                 DOB = new DateTime(1955, 9, 11),
                 SumInsured = 333000M,
-                Occupations = new OccupationsModel
+                Occupation = new OccupationsModel
                 {
                     Id = 5 // Mechanic
                 },
@@ -219,13 +230,13 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
             string originalName = content.Name;
             DateTime originalDOB = content.DOB;
             decimal originalSumInsured = content.SumInsured;
-            int originalOccupationId = content.Occupations.Id;
+            int originalOccupationId = content.Occupation.Id;
 
 
             content.Name += " [Name Update]";
             content.DOB = new DateTime(1941, 1, 1);
             content.SumInsured = 777000M;
-            content.Occupations.Id = 4; // Farmer
+            content.Occupation.Id = 4; // Farmer
 
             _controller.UpdateById(content);
 
@@ -241,7 +252,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
             Assert.AreEqual(content.Name, originalName + " [Name Update]");
             Assert.AreEqual(content.DOB, new DateTime(1941, 1, 1));
             Assert.AreEqual(content.SumInsured, 777000M);
-            Assert.AreEqual(content.Occupations.Id, 4);
+            Assert.AreEqual(content.Occupation.Id, 4);
         }
 
         [TestMethod]
@@ -253,7 +264,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                 Name = null,
                 DOB = new DateTime(2000, 1, 1),
                 SumInsured = 121000M,
-                Occupations = new OccupationsModel
+                Occupation = new OccupationsModel
                 {
                     Id = 1 // Cleaner
                 }
@@ -269,7 +280,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                 Name = "Mr Joe Bloe [TEST]",
                 DOB = new DateTime(2000, 1, 1),
                 SumInsured = 121000M,
-                Occupations = null
+                Occupation = null
             });
         }
 
@@ -318,11 +329,137 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
 
             Assert.AreEqual(content.Id, _primaryKeyPool[3]);
 
-            content.Occupations = null;
+            content.Occupation = null;
 
             _controller.UpdateById(content);
         }
 
+
+        /// <summary>
+        /// </summary>
+        /// <remarks>
+        ///     Uses _primaryKeyPool index 5
+        /// </remarks>
+        [TestMethod]
+        public void CalculatePremiumTest()
+        {
+            var response1 = _controller.GetById((int)_primaryKeyPool[4]);
+
+            Assert.IsNotNull(response1);
+            Assert.IsInstanceOfType(response1, typeof(OkNegotiatedContentResult<MembersModel>));
+            OkNegotiatedContentResult<MembersModel> result1 = (OkNegotiatedContentResult<MembersModel>)response1;
+            Assert.IsNotNull(result1.Content);
+            Assert.IsInstanceOfType(result1.Content, typeof(MembersModel));
+            MembersModel content1 = (MembersModel)result1.Content;
+
+            Assert.AreEqual(content1.Id, _primaryKeyPool[4]);
+
+            var response2 = _controller.CalculatePremium(content1);
+
+            Assert.IsNotNull(response2);
+            Assert.IsInstanceOfType(response2, typeof(OkNegotiatedContentResult<decimal?>));
+            OkNegotiatedContentResult<decimal?> result2 = (OkNegotiatedContentResult<decimal?>)response2;
+            Assert.IsNotNull(result2.Content);
+            Assert.IsInstanceOfType(result2.Content, typeof(decimal?));
+            decimal? content = (decimal?)result2.Content;
+            Assert.AreEqual(3654000.00M, content);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <remarks>
+        ///     Uses _primaryKeyPool index 5
+        /// </remarks>
+        [TestMethod]
+        public void CalculatePremiumZeroSumInsuredTest()
+        {
+            var response1 = _controller.GetById((int)_primaryKeyPool[4]);
+
+            Assert.IsNotNull(response1);
+            Assert.IsInstanceOfType(response1, typeof(OkNegotiatedContentResult<MembersModel>));
+            OkNegotiatedContentResult<MembersModel> result1 = (OkNegotiatedContentResult<MembersModel>)response1;
+            Assert.IsNotNull(result1.Content);
+            Assert.IsInstanceOfType(result1.Content, typeof(MembersModel));
+            MembersModel content1 = (MembersModel)result1.Content;
+
+            Assert.AreEqual(content1.Id, _primaryKeyPool[4]);
+
+            content1.SumInsured = 0.00M;
+
+            var response2 = _controller.CalculatePremium(content1);
+
+            Assert.IsNotNull(response2);
+            Assert.IsInstanceOfType(response2, typeof(OkNegotiatedContentResult<decimal?>));
+            OkNegotiatedContentResult<decimal?> result2 = (OkNegotiatedContentResult<decimal?>)response2;
+            Assert.IsNotNull(result2.Content);
+            Assert.IsInstanceOfType(result2.Content, typeof(decimal?));
+            decimal? content = (decimal?)result2.Content;
+            Assert.AreEqual(0.00M, content);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <remarks>
+        ///     Uses _primaryKeyPool index 5
+        /// </remarks>
+        [TestMethod]
+        public void CalculatePremiumNullOccupationTest()
+        {
+            var response1 = _controller.GetById((int)_primaryKeyPool[4]);
+
+            Assert.IsNotNull(response1);
+            Assert.IsInstanceOfType(response1, typeof(OkNegotiatedContentResult<MembersModel>));
+            OkNegotiatedContentResult<MembersModel> result1 = (OkNegotiatedContentResult<MembersModel>)response1;
+            Assert.IsNotNull(result1.Content);
+            Assert.IsInstanceOfType(result1.Content, typeof(MembersModel));
+            MembersModel content1 = (MembersModel)result1.Content;
+
+            Assert.AreEqual(content1.Id, _primaryKeyPool[4]);
+
+            content1.Occupation = null;
+
+            var response2 = _controller.CalculatePremium(content1);
+
+            Assert.IsNotNull(response2);
+            Assert.IsInstanceOfType(response2, typeof(OkNegotiatedContentResult<decimal?>));
+            OkNegotiatedContentResult<decimal?> result2 = (OkNegotiatedContentResult<decimal?>)response2;
+            Assert.IsNotNull(result2.Content);
+            Assert.IsInstanceOfType(result2.Content, typeof(decimal?));
+            decimal? content = (decimal?)result2.Content;
+            Assert.AreEqual(0.00M, content);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <remarks>
+        ///     Uses _primaryKeyPool index 5
+        /// </remarks>
+        [TestMethod]
+        public void CalculatePremiumNullOccupationRatingTest()
+        {
+            var response1 = _controller.GetById((int)_primaryKeyPool[4]);
+
+            Assert.IsNotNull(response1);
+            Assert.IsInstanceOfType(response1, typeof(OkNegotiatedContentResult<MembersModel>));
+            OkNegotiatedContentResult<MembersModel> result1 = (OkNegotiatedContentResult<MembersModel>)response1;
+            Assert.IsNotNull(result1.Content);
+            Assert.IsInstanceOfType(result1.Content, typeof(MembersModel));
+            MembersModel content1 = (MembersModel)result1.Content;
+
+            Assert.AreEqual(content1.Id, _primaryKeyPool[4]);
+
+            content1.Occupation.OccupationRating = null;
+
+            var response2 = _controller.CalculatePremium(content1);
+
+            Assert.IsNotNull(response2);
+            Assert.IsInstanceOfType(response2, typeof(OkNegotiatedContentResult<decimal?>));
+            OkNegotiatedContentResult<decimal?> result2 = (OkNegotiatedContentResult<decimal?>)response2;
+            Assert.IsNotNull(result2.Content);
+            Assert.IsInstanceOfType(result2.Content, typeof(decimal?));
+            decimal? content = (decimal?)result2.Content;
+            Assert.AreEqual(0.00M, content);
+        }
 
     }
 }

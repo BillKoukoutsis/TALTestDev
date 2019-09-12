@@ -96,7 +96,7 @@ namespace TAL.Developer.Test.Domain.Services
                 if (string.IsNullOrEmpty(model.Name))
                     throw new ApplicationException("Occupation name cannot be an empty string.");
 
-                if (model.OccupationRatings == null || model.OccupationRatings.Id <= 0)
+                if (model.OccupationRating == null || model.OccupationRating.Id <= 0)
                     throw new ApplicationException("Invalid occupation rating selected.");
 
                 return _OccupationsRepository.Insert(model);
@@ -119,7 +119,7 @@ namespace TAL.Developer.Test.Domain.Services
                 if (string.IsNullOrEmpty(model.Name))
                     throw new ApplicationException($"Occupation name cannot be an empty string. Occupational Id was {model.Id}.");
 
-                if (model.OccupationRatings == null || model.OccupationRatings.Id <= 0)
+                if (model.OccupationRating == null || model.OccupationRating.Id <= 0)
                     throw new ApplicationException($"Invalid occupation rating selected. Occupational Id was {model.Id}.");
 
                 _OccupationsRepository.UpdateById(model);

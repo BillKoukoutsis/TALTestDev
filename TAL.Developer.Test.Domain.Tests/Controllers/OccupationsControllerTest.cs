@@ -46,7 +46,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                 OkNegotiatedContentResult<decimal?> pk0 = (OkNegotiatedContentResult<decimal?>)_controller.Insert(new OccupationsModel()
                 {
                     Name = "Engineer [TEST]",
-                    OccupationRatings = new OccupationRatingsModel()
+                    OccupationRating = new OccupationRatingsModel()
                     {
                         Id = 1 // Professional; 1.0
                     }
@@ -55,7 +55,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                 OkNegotiatedContentResult<decimal?> pk1 = (OkNegotiatedContentResult<decimal?>)_controller.Insert(new OccupationsModel()
                 {
                     Name = "Chemist [TEST]",
-                    OccupationRatings = new OccupationRatingsModel()
+                    OccupationRating = new OccupationRatingsModel()
                     {
                         Id = 1 // Professional; 1.0
                     }
@@ -64,7 +64,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                 OkNegotiatedContentResult<decimal?> pk2 = (OkNegotiatedContentResult<decimal?>)_controller.Insert(new OccupationsModel()
                 {
                     Name = "Butcher [TEST]",
-                    OccupationRatings = new OccupationRatingsModel()
+                    OccupationRating = new OccupationRatingsModel()
                     {
                         Id = 4 // Heavy Manual; 1.75
                     }
@@ -73,7 +73,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
                 OkNegotiatedContentResult<decimal?> pk3 = (OkNegotiatedContentResult<decimal?>)_controller.Insert(new OccupationsModel()
                 {
                     Name = "Cobbler [TEST]",
-                    OccupationRatings = new OccupationRatingsModel()
+                    OccupationRating = new OccupationRatingsModel()
                     {
                         Id = 3 // Light Manual; 1.50
                     }
@@ -168,7 +168,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
             OkNegotiatedContentResult<decimal?> pk4 = (OkNegotiatedContentResult<decimal?>)_controller.Insert(new OccupationsModel()
             {
                 Name = "Pilot [TEST]",
-                OccupationRatings = new OccupationRatingsModel()
+                OccupationRating = new OccupationRatingsModel()
                 {
                     Id = 1 // Professional; 1.0
                 }
@@ -207,10 +207,10 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
             Assert.AreEqual(content.Id, _primaryKeyPool[2]);
 
             string originalName = content.Name;
-            decimal originalOccupationRatingId = content.OccupationRatings.Id;
+            decimal originalOccupationRatingId = content.OccupationRating.Id;
 
             content.Name += " [Name Update]";
-            content.OccupationRatings.Id = 2; // White Collar, 1.25
+            content.OccupationRating.Id = 2; // White Collar, 1.25
 
             _controller.UpdateById(content);
 
@@ -224,7 +224,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
             content = (OccupationsModel)result.Content;
 
             Assert.AreEqual(content.Name, originalName + " [Name Update]");
-            Assert.AreEqual(content.OccupationRatings.Id, 2);
+            Assert.AreEqual(content.OccupationRating.Id, 2);
         }
 
         [TestMethod]
@@ -234,7 +234,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
             OkNegotiatedContentResult<decimal?> pk = (OkNegotiatedContentResult<decimal?>)_controller.Insert(new OccupationsModel()
             {
                 Name = null,
-                OccupationRatings = new OccupationRatingsModel()
+                OccupationRating = new OccupationRatingsModel()
                 {
                     Id = 1 // Professional; 1.0
                 }
@@ -248,7 +248,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
             OkNegotiatedContentResult<decimal?> pk = (OkNegotiatedContentResult<decimal?>)_controller.Insert(new OccupationsModel()
             {
                 Name = "Designer [TEST]",
-                OccupationRatings = null
+                OccupationRating = null
             });
         }
 
@@ -297,7 +297,7 @@ namespace TAL.Developer.Test.Domain.Tests.Controllers
 
             Assert.AreEqual(content.Id, _primaryKeyPool[3]);
 
-            content.OccupationRatings = null;
+            content.OccupationRating = null;
 
             _controller.UpdateById(content);
         }

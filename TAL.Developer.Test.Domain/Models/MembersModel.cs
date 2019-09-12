@@ -8,7 +8,6 @@ namespace TAL.Developer.Test.Domain.Models
         public string Name { get; set; }
         public DateTime DOB { get; set; }
         public decimal SumInsured { get; set; }
-        public OccupationsModel Occupations { get; set; }
-
+        public OccupationsModel Occupation { get; set; }
     }
 }

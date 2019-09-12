@@ -38,12 +38,12 @@ namespace TAL.Developer.Test.Domain.Repositories
 
         public decimal? Insert(OccupationsModel model)
         {
-            return _context.spOccupations_Insert(model.Name, model.OccupationRatings.Id).FirstOrDefault();
+            return _context.spOccupations_Insert(model.Name, model.OccupationRating.Id).FirstOrDefault();
         }
 
         public void UpdateById(OccupationsModel model)
         {
-            _context.spOccupations_UpdateById(model.Id, model.Name, model.OccupationRatings.Id);
+            _context.spOccupations_UpdateById(model.Id, model.Name, model.OccupationRating.Id);
         }
 
     }

@@ -1,0 +1,55 @@
+<h1 *ngIf="occupation && occupation.id==0">Add Occupation</h1>
+<h1 *ngIf="occupation && occupation.id>0">Edit Occupation</h1>
+
+<p *ngIf="occupation && occupation.id==0">Add new occupation.</p>
+<p *ngIf="occupation && occupation.id>0">Edit existing occupation.</p>
+
+<p *ngIf="!occupation"><em>Retreiving occupation...</em></p>
+
+<form id="occupationsForm" name="occupationsForm" #occupationsForm="ngForm" *ngIf="occupation">
+
+  <div class="form-group row">
+    <label for="inputOccupationId" class="col-sm-2 col-form-label">Id</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputOccupationId" placeholder="Occupation Id" [(ngModel)]="occupation.id" [ngModelOptions]="{standalone: true}" readonly>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputOccupationName" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputOccupationName" name="inputOccupationName" placeholder="Occupation Name" [(ngModel)]="occupation.name" [ngModelOptions]="{standalone: true}" required maxlength="120" #inputOccupationName="ngModel">
+      <div *ngIf="inputOccupationName.invalid && (inputOccupationName.dirty || inputOccupationName.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputOccupationName.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="inputOccupationName.errors.maxlength">
+          Name must be at most 150 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputOccupationOccupationRating" class="col-sm-2 col-form-label">Occupation Rating</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="inputOccupationOccupationRating" name="inputOccupationOccupationRating" placeholder="Occupation OccupationRating" [(ngModel)]="occupation.occupationRating.id" [ngModelOptions]="{standalone: true}" required #inputOccupationOccupationRating="ngModel">
+        <option *ngFor="let occupationRating of occupationRatings" [value]="occupationRating.id" [selected]="occupationRating.id === occupation.occupationRating.Id">{{occupationRating.name}}</option>
+      </select>
+      <div *ngIf="inputOccupationOccupationRating.invalid && (inputOccupationOccupationRating.dirty || inputOccupationOccupationRating.touched)" class="alert2 alert-danger" style="position:absolute;z-index:999">
+        <div *ngIf="inputOccupationOccupationRating.errors.required">
+          Occupation Rating is required.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <a class="btn btn-default" [routerLink]='["/list-occupations"]'>
+        Cancel
+      </a>
+      <button type="submit" class="btn btn-primary" (click)="saveOccupation()">Save</button>
+    </div>
+  </div>
+</form>

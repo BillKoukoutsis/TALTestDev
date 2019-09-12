@@ -1,0 +1,32 @@
+<h1>Occupation Ratings</h1>
+
+<p>Shows a list of occupation ratings.</p>
+
+<p *ngIf="!occupationRatings"><em>Loading occupation ratings...</em></p>
+
+<table class='table' *ngIf="occupationRatings">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Factor</th>
+      <th>
+        <a class="btn btn-success" [routerLink]='["/edit-occupation-rating", 0]'>
+          Add
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let occupationRating of occupationRatings">
+      <td>{{ occupationRating.id }}</td>
+      <td>{{ occupationRating.name }}</td>
+      <td>{{ occupationRating.factor }}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]='["/edit-occupation-rating", occupationRating.id]'>
+          Edit
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

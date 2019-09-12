@@ -1,0 +1,38 @@
+<h1>Members</h1>
+
+<p>Shows a list of members.</p>
+
+<p *ngIf="!members"><em>Loading members...</em></p>
+
+<table class='table' *ngIf="members">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Date of Birth</th>
+      <th>Sum Insured ($)</th>
+      <th>Occupation</th>
+      <th>Premium ($/month)</th>
+      <th>
+        <a class="btn btn-success" [routerLink]='["/edit-member", 0]'>
+          Add
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of members">
+      <td>{{ member.id }}</td>
+      <td>{{ member.name }}</td>
+      <td>{{ member.dob.toLocaleDateString('en-AU') }}</td>
+      <td>{{ member.sumInsured.toFixed(2)  }}</td>
+      <td>{{ member.occupation.name }}</td>
+      <td>{{ member.premium != null ? member.premium.toFixed(2) : 0.00 }}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]='["/edit-member", member.id]'>
+          Edit
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

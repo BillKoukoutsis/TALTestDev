@@ -27,7 +27,7 @@ namespace TAL.Developer.Test.Domain
                 config.CreateMap<spOccupations_GetList_Result, OccupationsModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.occId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.occName))
-                .ForMember(dest => dest.OccupationRatings, opt => opt.MapFrom(src => src));
+                .ForMember(dest => dest.OccupationRating, opt => opt.MapFrom(src => src));
                 config.CreateMap<spOccupations_GetList_Result, OccupationRatingsModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.occOccupationRatingId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.oraName))
@@ -36,7 +36,7 @@ namespace TAL.Developer.Test.Domain
                 config.CreateMap<spOccupations_GetById_Result, OccupationsModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.occId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.occName))
-                .ForMember(dest => dest.OccupationRatings, opt => opt.MapFrom(src => src));
+                .ForMember(dest => dest.OccupationRating, opt => opt.MapFrom(src => src));
                 config.CreateMap<spOccupations_GetById_Result, OccupationRatingsModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.occOccupationRatingId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.oraName))
@@ -47,11 +47,11 @@ namespace TAL.Developer.Test.Domain
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.memName))
                 .ForMember(dest => dest.DOB, opt => opt.MapFrom(src => src.memDOB))
                 .ForMember(dest => dest.SumInsured, opt => opt.MapFrom(src => src.memSumInsured))
-                .ForMember(dest => dest.Occupations, opt => opt.MapFrom(src => src));
+                .ForMember(dest => dest.Occupation, opt => opt.MapFrom(src => src));
                 config.CreateMap<spMembers_GetList_Result, OccupationsModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.memOccupationId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.occName))
-                .ForMember(dest => dest.OccupationRatings, opt => opt.MapFrom(src => src));
+                .ForMember(dest => dest.OccupationRating, opt => opt.MapFrom(src => src));
                 config.CreateMap<spMembers_GetList_Result, OccupationRatingsModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.occOccupationRatingId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.oraName))
@@ -62,11 +62,11 @@ namespace TAL.Developer.Test.Domain
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.memName))
                 .ForMember(dest => dest.DOB, opt => opt.MapFrom(src => src.memDOB))
                 .ForMember(dest => dest.SumInsured, opt => opt.MapFrom(src => src.memSumInsured))
-                .ForMember(dest => dest.Occupations, opt => opt.MapFrom(src => src));
+                .ForMember(dest => dest.Occupation, opt => opt.MapFrom(src => src));
                 config.CreateMap<spMembers_GetById_Result, OccupationsModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.memOccupationId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.occName))
-                .ForMember(dest => dest.OccupationRatings, opt => opt.MapFrom(src => src));
+                .ForMember(dest => dest.OccupationRating, opt => opt.MapFrom(src => src));
                 config.CreateMap<spMembers_GetById_Result, OccupationRatingsModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.occOccupationRatingId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.oraName))

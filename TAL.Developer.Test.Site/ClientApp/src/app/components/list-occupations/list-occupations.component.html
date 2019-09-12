@@ -1,0 +1,32 @@
+<h1>Occupations</h1>
+
+<p>Shows a list of occupations.</p>
+
+<p *ngIf="!occupations"><em>Loading occupations...</em></p>
+
+<table class='table' *ngIf="occupations">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Rating</th>
+      <th>
+        <a class="btn btn-success" [routerLink]='["/edit-occupation", 0]'>
+          Add
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let occupation of occupations">
+      <td>{{ occupation.id }}</td>
+      <td>{{ occupation.name }}</td>
+      <td>{{ occupation.occupationRating.name }}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]='["/edit-occupation", occupation.id]'>
+          Edit
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public OccupationRatingsModel OccupationRatings { get; set; }
+        public OccupationRatingsModel OccupationRating { get; set; }
     }
 }

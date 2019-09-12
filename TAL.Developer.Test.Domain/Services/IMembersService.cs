@@ -11,5 +11,6 @@ namespace TAL.Developer.Test.Domain.Services
         MembersModel GetById(int id);
         decimal? Insert(MembersModel model);
         void UpdateById(MembersModel model);
+        decimal? CalculatePremium(MembersModel model);
     }
 }

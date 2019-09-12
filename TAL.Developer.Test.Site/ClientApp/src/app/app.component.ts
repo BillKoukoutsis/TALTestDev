@@ -12,9 +12,6 @@ export class AppComponent implements AfterViewInit {
 
   public title = 'app';
 
-  @ViewChild('loginScreen')
-  private loginScreen: any;
-
   constructor(router: Router) {
 
     this.router = router;
@@ -22,7 +19,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.loginScreen.nativeElement.classList.add('show');
   }
 
 }
